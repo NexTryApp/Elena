@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Matyushenko - Senior Generative AI Engineer</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="nav" id="nav">
+        <div class="nav-logo">EM</div>
+        <div class="theme-switcher">
+            <a href="../index.html" class="theme-dot" title="Fire"><span class="dot-inner" style="background: linear-gradient(135deg, #e8722a, #f5a623);"></span></a>
+            <a href="../ocean/index.html" class="theme-dot" title="Ocean"><span class="dot-inner" style="background: linear-gradient(135deg, #6ec0ff, #d0ecff);"></span></a>
+            <span class="theme-dot active" title="Cosmos"><span class="dot-inner" style="background: linear-gradient(135deg, #1a3a80, #4a8eff);"></span></span>
+            <a href="../forest/index.html" class="theme-dot" title="Forest"><span class="dot-inner" style="background: linear-gradient(135deg, #3d6e24, #7db356);"></span></a>
+            <a href="../mono/index.html" class="theme-dot" title="Mono"><span class="dot-inner" style="background: linear-gradient(135deg, #888, #ccc);"></span></a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Senior Generative AI Engineer</div>
+            <h1 class="hero-title">
+                <span class="line">Elena</span>
+                <span class="line accent">Matyushenko</span>
+            </h1>
+            <p class="hero-subtitle">Building AI-powered products end-to-end — from training diffusion models and optimizing inference pipelines to shipping full-stack web platforms with real users.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number" data-target="121">0</span><span class="stat-label">Published Models</span></div>
+                <div class="stat"><span class="stat-number" data-target="111">0</span><span class="stat-suffix">K+</span><span class="stat-label">Downloads</span></div>
+                <div class="stat"><span class="stat-number" data-target="2900">0</span><span class="stat-suffix">+</span><span class="stat-label">Platform Users</span></div>
+                <div class="stat"><span class="stat-number" data-target="16">0</span><span class="stat-suffix">+</span><span class="stat-label">AI Tools Built</span></div>
+            </div>
+            <div class="hero-cta">
+                <a href="../Elena_Matyushenko_Resume.pdf" class="btn btn-primary" target="_blank">Download Resume</a>
+                <a href="#gallery" class="btn btn-outline">View Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-lead">I build AI-powered products from zero to production — training custom diffusion models, designing ComfyUI inference pipelines, and shipping full-stack platforms that real people use.</p>
+                    <p>My work spans the entire stack: <strong>LoRA/LyCORIS fine-tuning</strong> for style transfer and identity consistency, <strong>ComfyUI production workflows</strong> with 2-5x inference speedups, and <strong>full-stack web platforms</strong> built with Next.js, NestJS, and PostgreSQL.</p>
+                    <p>On Civitai, I've published <strong>121 models</strong> under the handle <strong>Sa_May</strong>, accumulating over 111K downloads, 13K+ likes, and 1,300+ followers.</p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-card"><div class="highlight-icon">&#9672;</div><h3>Model Training</h3><p>LoRA, DreamBooth, Textual Inversion across SD 1.5/2.1/3, SDXL, FLUX, HiDream</p></div>
+                    <div class="highlight-card"><div class="highlight-icon">&#9671;</div><h3>Production Pipelines</h3><p>ComfyUI workflows, ControlNet, IP-Adapter, GPU inference optimization</p></div>
+                    <div class="highlight-card"><div class="highlight-icon">&#9670;</div><h3>Full-Stack Dev</h3><p>Next.js, NestJS, TypeScript, PostgreSQL, Stripe, Docker, AWS/GCP</p></div>
+                    <div class="highlight-card"><div class="highlight-icon">&#9673;</div><h3>Team Lead</h3><p>Distributed team management, code review, sprint planning, CI/CD</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-category"><h3 class="skill-cat-title">Generative AI</h3><div class="skill-tags"><span class="tag">Stable Diffusion</span><span class="tag">SDXL</span><span class="tag">FLUX</span><span class="tag">HiDream</span><span class="tag">LoRA</span><span class="tag">LyCORIS</span><span class="tag">DreamBooth</span><span class="tag">ComfyUI</span><span class="tag">ControlNet</span><span class="tag">IP-Adapter</span></div></div>
+                <div class="skill-category"><h3 class="skill-cat-title">ML / Deep Learning</h3><div class="skill-tags"><span class="tag">PyTorch</span><span class="tag">Diffusers</span><span class="tag">SAM</span><span class="tag">YOLO</span><span class="tag">NumPy</span><span class="tag">pandas</span><span class="tag">Jupyter</span><span class="tag">scikit-learn</span></div></div>
+                <div class="skill-category"><h3 class="skill-cat-title">Frontend</h3><div class="skill-tags"><span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">GSAP</span><span class="tag">Radix UI</span></div></div>
+                <div class="skill-category"><h3 class="skill-cat-title">Backend & Infra</h3><div class="skill-tags"><span class="tag">NestJS</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Stripe</span></div></div>
+                <div class="skill-category"><h3 class="skill-cat-title">Video & Animation</h3><div class="skill-tags"><span class="tag">Luma</span><span class="tag">Kling</span><span class="tag">AnimateDiff</span><span class="tag">Hunyuan Video</span><span class="tag">WAN</span><span class="tag">Runway</span></div></div>
+                <div class="skill-category"><h3 class="skill-cat-title">LLM Integration</h3><div class="skill-tags"><span class="tag">OpenAI</span><span class="tag">Anthropic</span><span class="tag">Groq</span><span class="tag">Ollama</span><span class="tag">Function Calling</span><span class="tag">Prompt Engineering</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <a href="https://nextry.app" target="_blank" class="project-card project-featured"><div class="project-badge badge-live">Live Platform</div><h3 class="project-name">NexTry</h3><p class="project-tagline">AI Virtual Try-On Platform</p><p class="project-desc">Next.js 15 + React 19 platform with 16+ AI generator tools serving 2,900+ users. Virtual try-on, mannequin generation, virtual photoshoots, colorization, pose transfer.</p><div class="project-metrics"><span>2,900+ users</span><span>16+ AI tools</span><span>2-5x speed gains</span></div><span class="project-link">Visit NexTry &rarr;</span></a>
+                <a href="https://botbazar.ai" target="_blank" class="project-card"><div class="project-badge">Beta</div><h3 class="project-name">BotBazar</h3><p class="project-tagline">AI Bot Marketplace</p><p class="project-desc">Full-stack monorepo: Next.js + NestJS + PostgreSQL + Redis. Multi-role auth, Stripe payments with escrow, AI moderation, bot arena.</p><div class="project-metrics"><span>Stripe escrow</span><span>Multi-role auth</span><span>LLM moderation</span></div><span class="project-link">Visit BotBazar &rarr;</span></a>
+                <a href="https://github.com/NexTryApp/TaskPilot" target="_blank" class="project-card"><div class="project-badge badge-oss">Open Source</div><h3 class="project-name">TaskPilot</h3><p class="project-tagline">Security-First AI Agent Framework</p><p class="project-desc">TypeScript AI agent framework with tool registry, memory system, command security layer. 16+ LLM providers, Docker sandbox. MIT license.</p><div class="project-metrics"><span>16+ LLM providers</span><span>Docker sandbox</span><span>MIT License</span></div><span class="project-link">GitHub &rarr;</span></a>
+                <a href="https://civitai.com/user/Sa_May" target="_blank" class="project-card"><div class="project-badge badge-civitai">Civitai</div><h3 class="project-name">Sa_May Models</h3><p class="project-tagline">121 Published AI Models</p><p class="project-desc">LoRA/LyCORIS models for fashion, product visuals, portraits, and style systems across SD 1.5, SDXL, FLUX. 111K+ downloads, 13K+ likes, 1,300+ followers.</p><div class="project-metrics"><span>111K+ downloads</span><span>13K+ likes</span><span>1,300+ followers</span></div><span class="project-link">View on Civitai &rarr;</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="gallery">
+        <div class="container">
+            <h2 class="section-title">AI Generation Gallery</h2>
+            <p class="gallery-subtitle">Production outputs from NexTry platform</p>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="tryon">Fashion Swap</button>
+                <button class="filter-btn" data-filter="print">Wear Print</button>
+                <button class="filter-btn" data-filter="style">Style Transfer</button>
+                <button class="filter-btn" data-filter="portrait">Portraits</button>
+                <button class="filter-btn" data-filter="pipeline">Pipelines</button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-09-27_11-10-42.jpg" alt="Fashion Swap" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Dress try-on</p></div></div>
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-09-27_14-07-49.jpg" alt="Fashion Swap" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Virtual try-on</p></div></div>
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-09-27_14-05-12 (2).jpg" alt="Fashion Swap" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Flat → on model</p></div></div>
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-07-06_15-14-29.jpg" alt="Fashion Swap" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Brand sweatshirt</p></div></div>
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-08-21_23-01-25.jpg" alt="Fashion Swap" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Flat → editorial</p></div></div>
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-08-20_16-31-49.jpg" alt="Accessory" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Accessory</span><p>Product → on model</p></div></div>
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-07-08_15-48-02.jpg" alt="Fashion Swap" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Botanical dress</p></div></div>
+                <div class="gallery-item" data-category="tryon"><img src="../images/site/photo_2025-08-08_23-22-25 (2).jpg" alt="Extraction" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Extraction</span><p>Runway → flat</p></div></div>
+                <div class="gallery-item" data-category="print"><img src="../images/site/photo_2025-06-30_17-16-14.jpg" alt="Wear Print" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Art → hoodie</p></div></div>
+                <div class="gallery-item" data-category="print"><img src="../images/site/photo_2025-03-20_17-49-06.jpg" alt="Wear Print" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Illustration → hoodie</p></div></div>
+                <div class="gallery-item" data-category="print"><img src="../images/site/photo_2025-03-20_16-59-14.jpg" alt="Wear Print" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Floral → phone case</p></div></div>
+                <div class="gallery-item" data-category="print"><img src="../images/site/photo_2025-04-10_20-22-01.jpg" alt="Wear Print" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Monstera → shirt</p></div></div>
+                <div class="gallery-item" data-category="print"><img src="../images/site/photo_2025-03-20_18-52-29.jpg" alt="Wear Print" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Character → hoodie</p></div></div>
+                <div class="gallery-item" data-category="style"><img src="../images/site/photo_2025-07-25_11-54-36.jpg" alt="Style Transfer" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Style Transfer</span><p>Photo → painting</p></div></div>
+                <div class="gallery-item" data-category="style"><img src="../images/site/photo_2025-07-25_11-54-37.jpg" alt="Style Transfer" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Style Transfer</span><p>Nature → painterly</p></div></div>
+                <div class="gallery-item" data-category="style"><img src="../images/site/photo_2025-07-26_09-27-12.jpg" alt="Style Transfer" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Style Transfer</span><p>Glass effect</p></div></div>
+                <div class="gallery-item" data-category="style"><img src="../images/site/photo_2025-07-20_22-05-42.jpg" alt="Pattern" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Pattern</span><p>Seamless pattern</p></div></div>
+                <div class="gallery-item" data-category="style"><img src="../images/site/photo_2025-08-17_15-30-26 (4).jpg" alt="Outpainting" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Outpainting</span><p>Art expansion</p></div></div>
+                <div class="gallery-item" data-category="portrait"><img src="../images/site/photo_2025-07-24_16-05-56.jpg" alt="Character LoRA" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Character LoRA</span><p>4 pose grid</p></div></div>
+                <div class="gallery-item" data-category="portrait"><img src="../images/site/photo_2025-07-24_19-06-43.jpg" alt="Character LoRA" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Character LoRA</span><p>Porcelain aesthetic</p></div></div>
+                <div class="gallery-item" data-category="portrait"><img src="../images/site/photo_2025-07-24_14-59-48.jpg" alt="Character LoRA" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Character LoRA</span><p>Sci-fi character</p></div></div>
+                <div class="gallery-item" data-category="portrait"><img src="../images/site/photo_2024-11-18_19-36-19.jpg" alt="Style LoRA" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Style LoRA</span><p>Editorial portrait</p></div></div>
+                <div class="gallery-item" data-category="portrait"><img src="../images/site/photo_2025-02-16_12-21-05 (3).jpg" alt="Creative LoRA" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Creative LoRA</span><p>Themed scene</p></div></div>
+                <div class="gallery-item" data-category="pipeline"><img src="../images/site/photo_2025-08-18_16-14-21.jpg" alt="Pipeline" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Pipeline</span><p>Pose + face + dress</p></div></div>
+                <div class="gallery-item" data-category="pipeline"><img src="../images/site/photo_2025-08-22_22-29-27.jpg" alt="Pipeline" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Pipeline</span><p>Depth + face + outfit</p></div></div>
+                <div class="gallery-item" data-category="pipeline"><img src="../images/site/photo_2025-08-23_11-11-21.jpg" alt="Pipeline" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Pipeline</span><p>Body-aware fitting</p></div></div>
+                <div class="gallery-item" data-category="pipeline"><img src="../images/site/photo_2025-03-19_22-26-54 (2).jpg" alt="Room Set" loading="lazy"><div class="gallery-overlay"><span class="gallery-tag">Room Set</span><p>Surface replacement</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">&lsaquo;</button>
+        <button class="lightbox-next">&rsaquo;</button>
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-info" id="lightbox-info"></div>
+    </div>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="contact-subtitle">Open to full-time, contract, and consulting roles in generative AI, ML pipeline engineering, and full-stack product development.</p>
+            <div class="contact-links">
+                <a href="mailto:business@nextry.app" class="contact-card"><div class="contact-icon">&#9993;</div><span class="contact-label">Email</span><span class="contact-value">business@nextry.app</span></a>
+                <a href="https://nextry.app" class="contact-card" target="_blank"><div class="contact-icon">&#9758;</div><span class="contact-label">Website</span><span class="contact-value">nextry.app</span></a>
+                <a href="https://civitai.com/user/Sa_May" class="contact-card" target="_blank"><div class="contact-icon">&#9733;</div><span class="contact-label">Civitai</span><span class="contact-value">Sa_May</span></a>
+                <a href="https://www.linkedin.com/in/elena-matyushenko-366526257/" class="contact-card" target="_blank"><div class="contact-icon">&#9741;</div><span class="contact-label">LinkedIn</span><span class="contact-value">Elena Matyushenko</span></a>
+                <a href="../Elena_Matyushenko_Resume.pdf" class="contact-card" target="_blank"><div class="contact-icon">&#9776;</div><span class="contact-label">Resume</span><span class="contact-value">Download PDF</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><p>&copy; 2026 Elena Matyushenko. Exploring the cosmos of AI.</p></footer>
+
+    <script src="background.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
