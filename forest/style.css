@@ -206,12 +206,6 @@ img { max-width: 100%; display: block; }
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ffffff, #e0909a, #ffffff, #d87080, #ffffff);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmerText 8s ease-in-out infinite;
 }
 
 @keyframes shimmerText {
@@ -223,9 +217,14 @@ img { max-width: 100%; display: block; }
     display: block;
     opacity: 0;
     animation: fadeUp 0.8s forwards;
+    background: linear-gradient(135deg, #ffffff, #e0909a, #ffffff, #d87080, #ffffff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.hero-title .line:nth-child(1) { animation-delay: 1s; }
+.hero-title .line:nth-child(1) { animation-delay: 1s; animation: fadeUp 0.8s 1s forwards, shimmerText 8s 2s ease-in-out infinite; }
 .hero-title .line:nth-child(2) { animation-delay: 1.2s; }
 
 .hero-title .accent {

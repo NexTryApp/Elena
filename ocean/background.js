@@ -35,10 +35,10 @@
     let bubbles = [];
     let particles = [];
 
-    // Rainbow reward — appears after popping 100 bubbles
+    // Giant bubble reward — appears after popping 100 bubbles
     let popCount = 0;
-    const POP_GOAL = 100;
-    let rainbow = null; // { opacity: 1, phase: 'show' | 'fade' , timer: 0 }
+    const POP_GOAL = 50;
+    let giantBubble = null;
 
     function createBubble(initial) {
         const r = 8 + Math.random() * 35;
@@ -78,8 +78,8 @@
         }
         b.alive = false;
         popCount++;
-        if (popCount >= POP_GOAL && !rainbow) {
-            rainbow = { opacity: 0, phase: 'appear', timer: 0 };
+        if (popCount >= POP_GOAL && !giantBubble) {
+            spawnGiantBubble();
             popCount = 0; // reset so it can trigger again
         }
     }
@@ -117,19 +117,164 @@
         });
         particles = particles.filter(p => p.life > 0);
 
-        // Rainbow reward update
-        if (rainbow) {
-            rainbow.timer++;
-            if (rainbow.phase === 'appear') {
-                rainbow.opacity += 0.002; // fade in gently ~0.6s
-                if (rainbow.opacity >= 0.07) { rainbow.opacity = 0.07; rainbow.phase = 'hold'; rainbow.timer = 0; }
-            } else if (rainbow.phase === 'hold') {
-                if (rainbow.timer > 60) { rainbow.phase = 'fade'; } // hold ~1s
-            } else if (rainbow.phase === 'fade') {
-                rainbow.opacity -= 0.00039; // fade out over ~3s
-                if (rainbow.opacity <= 0) { rainbow = null; }
+        // Giant bubble reward update
+        if (giantBubble) {
+            giantBubble.y -= giantBubble.speed;
+            giantBubble.wobblePhase += giantBubble.wobbleFreq;
+            giantBubble.hueBase += giantBubble.hueSpeed;
+            // Grow to full size
+            if (giantBubble.currentR < giantBubble.r) {
+                giantBubble.currentR += (giantBubble.r - giantBubble.currentR) * 0.03;
+            }
+            const bx = giantBubble.x + Math.sin(giantBubble.wobblePhase) * giantBubble.wobbleAmp;
+            // Mouse collision → POP the giant!
+            const gdx = mouseX - bx;
+            const gdy = mouseY - giantBubble.y;
+            if (Math.sqrt(gdx * gdx + gdy * gdy) < giantBubble.currentR + 20) {
+                popGiantBubble();
+            }
+            // Off screen
+            if (giantBubble.y + giantBubble.currentR < -100) {
+                giantBubble = null;
             }
         }
+    }
+
+    function spawnGiantBubble() {
+        // Spawn from random edge: left, right, or bottom
+        const edge = Math.random();
+        let sx, sy;
+        const giantR = 80 + Math.random() * 50; // 80-130px radius
+        if (edge < 0.33) {
+            // Left edge
+            sx = -giantR;
+            sy = H * 0.3 + Math.random() * H * 0.4;
+        } else if (edge < 0.66) {
+            // Right edge
+            sx = W + giantR;
+            sy = H * 0.3 + Math.random() * H * 0.4;
+        } else {
+            // Bottom
+            sx = W * 0.2 + Math.random() * W * 0.6;
+            sy = H + giantR;
+        }
+        giantBubble = {
+            x: sx,
+            y: sy,
+            r: giantR,
+            currentR: 10, // starts small, grows
+            speed: 0.3 + Math.random() * 0.2,
+            wobblePhase: Math.random() * Math.PI * 2,
+            wobbleAmp: 15 + Math.random() * 25,
+            wobbleFreq: 0.003 + Math.random() * 0.004,
+            hueBase: Math.random() * 360,
+            hueSpeed: 0.6 + Math.random() * 0.4
+        };
+    }
+
+    function popGiantBubble() {
+        if (!giantBubble) return;
+        const bx = giantBubble.x + Math.sin(giantBubble.wobblePhase) * giantBubble.wobbleAmp;
+        const by = giantBubble.y;
+        const r = giantBubble.currentR;
+        // Lots of rainbow particles — big explosion
+        const count = 30 + Math.floor(r / 3);
+        for (let i = 0; i < count; i++) {
+            const angle = (Math.PI * 2 * i) / count + Math.random() * 0.3;
+            const speed = 3 + Math.random() * 5;
+            particles.push({
+                x: bx + Math.cos(angle) * r * 0.5 * Math.random(),
+                y: by + Math.sin(angle) * r * 0.5 * Math.random(),
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                r: 2.5 + Math.random() * 4,
+                life: 1.0,
+                hue: (giantBubble.hueBase + i * 12) % 360
+            });
+        }
+        giantBubble = null;
+    }
+
+    function drawGiantBubble() {
+        if (!giantBubble) return;
+        const g = giantBubble;
+        const x = g.x + Math.sin(g.wobblePhase) * g.wobbleAmp;
+        const r = g.currentR;
+        const hue = g.hueBase % 360;
+
+        ctx.save();
+
+        // Outer glow
+        const glowGrad = ctx.createRadialGradient(x, g.y, r * 0.8, x, g.y, r * 1.5);
+        glowGrad.addColorStop(0, `hsla(${hue}, 70%, 70%, 0.08)`);
+        glowGrad.addColorStop(1, 'transparent');
+        ctx.fillStyle = glowGrad;
+        ctx.beginPath();
+        ctx.arc(x, g.y, r * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Drop shadow
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.12)';
+        ctx.shadowBlur = r * 0.6;
+        ctx.shadowOffsetY = r * 0.1;
+
+        // Main body — bigger, more colorful
+        const bodyGrad = ctx.createRadialGradient(x - r * 0.25, g.y - r * 0.25, r * 0.05, x, g.y, r);
+        bodyGrad.addColorStop(0, `hsla(${hue}, 65%, 90%, 0.22)`);
+        bodyGrad.addColorStop(0.5, `hsla(${(hue + 60) % 360}, 55%, 85%, 0.12)`);
+        bodyGrad.addColorStop(1, `hsla(${(hue + 120) % 360}, 50%, 80%, 0.16)`);
+        ctx.beginPath();
+        ctx.arc(x, g.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = bodyGrad;
+        ctx.fill();
+        ctx.restore();
+
+        // Thick rainbow rim
+        ctx.beginPath();
+        ctx.arc(x, g.y, r, 0, Math.PI * 2);
+        const rimGrad = ctx.createConicGradient(0, x, g.y);
+        rimGrad.addColorStop(0, `hsla(${hue}, 75%, 65%, 0.7)`);
+        rimGrad.addColorStop(0.15, `hsla(${(hue + 50) % 360}, 70%, 60%, 0.6)`);
+        rimGrad.addColorStop(0.3, `hsla(${(hue + 110) % 360}, 75%, 65%, 0.65)`);
+        rimGrad.addColorStop(0.45, `hsla(${(hue + 170) % 360}, 70%, 60%, 0.6)`);
+        rimGrad.addColorStop(0.6, `hsla(${(hue + 220) % 360}, 75%, 65%, 0.65)`);
+        rimGrad.addColorStop(0.75, `hsla(${(hue + 280) % 360}, 70%, 60%, 0.6)`);
+        rimGrad.addColorStop(0.9, `hsla(${(hue + 330) % 360}, 75%, 65%, 0.65)`);
+        rimGrad.addColorStop(1, `hsla(${hue}, 75%, 65%, 0.7)`);
+        ctx.strokeStyle = rimGrad;
+        ctx.lineWidth = 3.5;
+        ctx.stroke();
+
+        // Rainbow shimmer band
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(x, g.y, r, 0, Math.PI * 2);
+        ctx.clip();
+        const shimmerGrad = ctx.createLinearGradient(x - r, g.y - r * 0.3, x + r, g.y + r * 0.3);
+        shimmerGrad.addColorStop(0, `hsla(${hue}, 80%, 70%, 0.0)`);
+        shimmerGrad.addColorStop(0.2, `hsla(${(hue + 50) % 360}, 85%, 75%, 0.18)`);
+        shimmerGrad.addColorStop(0.4, `hsla(${(hue + 120) % 360}, 90%, 70%, 0.25)`);
+        shimmerGrad.addColorStop(0.6, `hsla(${(hue + 200) % 360}, 85%, 75%, 0.2)`);
+        shimmerGrad.addColorStop(0.8, `hsla(${(hue + 280) % 360}, 85%, 70%, 0.18)`);
+        shimmerGrad.addColorStop(1, `hsla(${(hue + 340) % 360}, 80%, 70%, 0.0)`);
+        ctx.fillStyle = shimmerGrad;
+        ctx.fillRect(x - r, g.y - r, r * 2, r * 2);
+        ctx.restore();
+
+        // Big highlight
+        ctx.beginPath();
+        ctx.arc(x - r * 0.3, g.y - r * 0.3, r * 0.35, 0, Math.PI * 2);
+        const hlGrad = ctx.createRadialGradient(x - r * 0.3, g.y - r * 0.3, 0, x - r * 0.3, g.y - r * 0.3, r * 0.35);
+        hlGrad.addColorStop(0, 'rgba(255, 255, 255, 0.6)');
+        hlGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = hlGrad;
+        ctx.fill();
+
+        // Secondary highlight
+        ctx.beginPath();
+        ctx.arc(x + r * 0.2, g.y + r * 0.25, r * 0.12, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+        ctx.fill();
     }
 
     function drawBubble(b) {
@@ -205,43 +350,13 @@
         ctx.fill();
     }
 
-    function drawRainbow() {
-        if (!rainbow || rainbow.opacity <= 0) return;
-        const a = rainbow.opacity;
-        const cx = W * 0.5;
-        const cy = H * 1.1; // center below viewport so arc fills full screen
-        const outerR = Math.max(W, H) * 1.3; // large enough to span entire viewport
-        // Smooth gradient — many thin bands interpolating between key hues
-        const keyHues = [0, 30, 55, 120, 210, 250, 290, 330];
-        const BANDS = 40; // many thin bands for smooth transitions
-        const bandW = outerR * 0.008;
-        for (let i = 0; i < BANDS; i++) {
-            const t = i / (BANDS - 1); // 0..1
-            // Interpolate hue smoothly across key colors
-            const pos = t * (keyHues.length - 1);
-            const idx = Math.floor(pos);
-            const frac = pos - idx;
-            const h0 = keyHues[Math.min(idx, keyHues.length - 1)];
-            const h1 = keyHues[Math.min(idx + 1, keyHues.length - 1)];
-            const hue = h0 + (h1 - h0) * frac;
-            // Fade edges to transparent for soft look
-            const edgeFade = Math.sin(t * Math.PI); // 0 at edges, 1 in middle
-            const r = outerR - i * bandW;
-            if (r <= 0) continue;
-            ctx.beginPath();
-            ctx.arc(cx, cy, r, Math.PI, 0);
-            ctx.strokeStyle = `hsla(${hue}, 60%, 65%, ${a * (0.5 + edgeFade * 0.5)})`;
-            ctx.lineWidth = bandW * 1.3; // slight overlap to prevent gaps
-            ctx.lineCap = 'round';
-            ctx.stroke();
-        }
-    }
+    // REMOVED: drawRainbow — replaced with drawGiantBubble
 
     function draw() {
         ctx.clearRect(0, 0, W, H);
 
-        // Rainbow behind everything
-        drawRainbow();
+        // Giant bubble reward
+        drawGiantBubble();
 
         bubbles.forEach(b => {
             if (b.alive) drawBubble(b);
