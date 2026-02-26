@@ -8,8 +8,8 @@
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
 
     let W, H;
     let mouseX = -999, mouseY = -999;
@@ -31,7 +31,7 @@
         mouseY = e.clientY;
     });
 
-    const MAX_BUBBLES = isMobile ? 20 : 40;
+    const MAX_BUBBLES = isMobile ? 12 : 40;
     let bubbles = [];
     let particles = [];
 
@@ -136,6 +136,31 @@
         const r = b.r;
         const hue = b.hueBase % 360;
 
+        if (isMobile) {
+            // Mobile: simplified — body + rim + one highlight (3 draw calls vs 6)
+            const bodyGrad = ctx.createRadialGradient(x - r * 0.25, b.y - r * 0.25, r * 0.05, x, b.y, r);
+            bodyGrad.addColorStop(0, `hsla(${hue}, 60%, 92%, 0.18)`);
+            bodyGrad.addColorStop(1, `hsla(${(hue + 120) % 360}, 45%, 85%, 0.12)`);
+            ctx.beginPath();
+            ctx.arc(x, b.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = bodyGrad;
+            ctx.fill();
+
+            // Simple solid rim instead of conic gradient
+            ctx.beginPath();
+            ctx.arc(x, b.y, r, 0, Math.PI * 2);
+            ctx.strokeStyle = `hsla(${hue}, 60%, 65%, 0.4)`;
+            ctx.lineWidth = r > 18 ? 2 : 1;
+            ctx.stroke();
+
+            // One highlight
+            ctx.beginPath();
+            ctx.arc(x - r * 0.3, b.y - r * 0.3, r * 0.25, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.fill();
+            return;
+        }
+
         ctx.save();
 
         // Drop shadow
@@ -210,7 +235,7 @@
         const cy = H * 1.1;
         const outerR = Math.max(W, H) * 1.3;
         const keyHues = [0, 30, 55, 120, 210, 250, 290, 330];
-        const BANDS = 40;
+        const BANDS = isMobile ? 16 : 40;
         const bandW = outerR * 0.008;
         for (let i = 0; i < BANDS; i++) {
             const t = i / (BANDS - 1);

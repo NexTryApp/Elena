@@ -8,8 +8,8 @@
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
 
     let W, H;
     let cursorX = -999, cursorY = -999;
@@ -33,7 +33,7 @@
     });
 
     // ---- Leaves ----
-    const LEAF_COUNT = isMobile ? 12 : 22;
+    const LEAF_COUNT = isMobile ? 8 : 22;
     let leaves = [];
 
     function createLeaf(initial) {
@@ -114,7 +114,7 @@
     }
 
     // ---- Fireflies ----
-    const FIREFLY_COUNT = isMobile ? 18 : 35;
+    const FIREFLY_COUNT = isMobile ? 10 : 35;
     let fireflies = [];
 
     function createFirefly() {
@@ -139,6 +139,19 @@
     function drawFirefly(f) {
         const pulse = 0.4 + 0.6 * Math.pow(Math.sin(f.phase), 2);
         const alpha = f.brightness * pulse;
+
+        if (isMobile) {
+            // Mobile: skip radialGradient, use simple glow circle + core
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, f.glowR * pulse * 0.5, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${f.hue}, 70%, 60%, ${alpha * 0.2})`;
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, f.r * pulse, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${f.hue}, 90%, 75%, ${alpha})`;
+            ctx.fill();
+            return;
+        }
 
         // Outer glow
         const glow = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.glowR * pulse);
@@ -209,15 +222,17 @@
             ctx.fillStyle = color;
             ctx.fill();
 
-            // Petal vein
-            ctx.beginPath();
-            ctx.moveTo(r * 0.1, 0);
-            ctx.lineTo(r * 0.6, 0);
-            ctx.strokeStyle = colorInner;
-            ctx.lineWidth = 0.4;
-            ctx.globalAlpha = alpha * 0.5;
-            ctx.stroke();
-            ctx.globalAlpha = alpha;
+            // Petal vein (skip on mobile — saves 5 stroke calls per blossom)
+            if (!isMobile) {
+                ctx.beginPath();
+                ctx.moveTo(r * 0.1, 0);
+                ctx.lineTo(r * 0.6, 0);
+                ctx.strokeStyle = colorInner;
+                ctx.lineWidth = 0.4;
+                ctx.globalAlpha = alpha * 0.5;
+                ctx.stroke();
+                ctx.globalAlpha = alpha;
+            }
 
             ctx.restore();
         }

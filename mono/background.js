@@ -8,14 +8,14 @@
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
 
     let W, H;
 
     // Store all stroke segments with their opacity
     let strokes = [];
-    const MAX_STROKES = 600;
+    const MAX_STROKES = isMobile ? 200 : 600;
     const FADE_RATE = 0.003;
 
     let lastX = -1, lastY = -1;
@@ -194,8 +194,8 @@
                     width: 1.0 + Math.random() * 0.5,
                     shade: 50 + Math.floor(Math.random() * 50)
                 });
-                // Secondary lighter stroke for texture
-                if (Math.random() > 0.4) {
+                // Secondary lighter stroke for texture (skip on mobile)
+                if (!isMobile && Math.random() > 0.4) {
                     strokes.push({
                         x1: p0[0] + jx + (Math.random()-0.5)*2,
                         y1: p0[1] + jy + (Math.random()-0.5)*2,

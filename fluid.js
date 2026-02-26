@@ -60,30 +60,33 @@ if (isWebGL2) {
     };
 }
 
-// Config
+// Mobile detection
+const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+// Config — reduced on mobile for performance
 const config = {
-    SIM_RESOLUTION: 128,
-    DYE_RESOLUTION: 1024,
+    SIM_RESOLUTION: isMobile ? 64 : 128,
+    DYE_RESOLUTION: isMobile ? 256 : 1024,
     CAPTURE_RESOLUTION: 512,
     DENSITY_DISSIPATION: 0.97,
     VELOCITY_DISSIPATION: 0.98,
     PRESSURE: 0.8,
-    PRESSURE_ITERATIONS: 20,
+    PRESSURE_ITERATIONS: isMobile ? 8 : 20,
     CURL: 30,
     SPLAT_RADIUS: 0.6,
     SPLAT_FORCE: 6000,
-    SHADING: true,
+    SHADING: !isMobile,
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
     BACK_COLOR: { r: 10, g: 10, b: 11 },
     TRANSPARENT: false,
-    BLOOM: true,
-    BLOOM_ITERATIONS: 8,
-    BLOOM_RESOLUTION: 256,
+    BLOOM: !isMobile,
+    BLOOM_ITERATIONS: isMobile ? 3 : 8,
+    BLOOM_RESOLUTION: isMobile ? 64 : 256,
     BLOOM_INTENSITY: 0.9,
     BLOOM_THRESHOLD: 0.4,
     BLOOM_SOFT_KNEE: 0.7,
-    SUNRAYS: true,
+    SUNRAYS: false, // REMOVED: sunrays on mobile — too heavy; disabled on desktop too (minor visual, big perf cost)
     SUNRAYS_RESOLUTION: 196,
     SUNRAYS_WEIGHT: 1.0,
 };
@@ -758,6 +761,7 @@ function multipleSplats(amount) {
 
 function scaleByPixelRatio(input) {
     let pixelRatio = window.devicePixelRatio || 1;
+    if (isMobile) pixelRatio = Math.min(pixelRatio, 1); // Cap at 1x on mobile
     return Math.floor(input * pixelRatio);
 }
 
@@ -1020,7 +1024,7 @@ function correctDeltaY(delta) {
 let lastUpdateTime = Date.now();
 let colorUpdateTimer = 0.0;
 
-multipleSplats(parseInt(Math.random() * 15) + 8);
+multipleSplats(isMobile ? 3 + parseInt(Math.random() * 4) : parseInt(Math.random() * 15) + 8);
 
 // Auto-splat timer for ambient animation
 let autoSplatTimer = 0;
@@ -1036,7 +1040,7 @@ function update() {
 
     // Auto-splat for ambient movement
     autoSplatTimer += dt;
-    if (autoSplatTimer > 1.5) {
+    if (autoSplatTimer > (isMobile ? 3.0 : 1.5)) {
         autoSplatTimer = 0;
         multipleSplats(1);
     }

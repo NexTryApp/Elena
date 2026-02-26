@@ -7,8 +7,8 @@
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const isMobile = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
 
     let W, H;
     let mouseX = W / 2, mouseY = H / 2;
@@ -32,7 +32,7 @@
     });
 
     // Stars
-    const starCount = isMobile ? 120 : 240;
+    const starCount = isMobile ? 60 : 240;
     const stars = [];
     for (let i = 0; i < starCount; i++) {
         const temp = Math.random();
@@ -54,12 +54,13 @@
     // Shooting stars — fly toward mouse, every 2s, 0.3s spawn delay
     let shootingStars = [];
     let nextShoot = performance.now() + 2000;
-    const SHOOT_INTERVAL = 2000;
+    const SHOOT_INTERVAL = isMobile ? 4000 : 2000;
     const SHOOT_DELAY = 300; // ms delay between trigger and actual spawn
 
     // Nebulae — very subtle
     const nebulae = [];
-    for (let i = 0; i < 3; i++) {
+    const nebulaCount = isMobile ? 1 : 3;
+    for (let i = 0; i < nebulaCount; i++) {
         nebulae.push({
             x: 0.15 + Math.random() * 0.7,
             y: 0.15 + Math.random() * 0.7,
@@ -73,7 +74,8 @@
     // Cosmic shimmer — large golden/warm aurora clouds
     const shimmers = [];
     const shimmerHues = [40, 50, 35, 55, 45]; // gold, yellow, amber, warm yellow, gold
-    for (let i = 0; i < 5; i++) {
+    const shimmerCount = isMobile ? 2 : 5;
+    for (let i = 0; i < shimmerCount; i++) {
         shimmers.push({
             x: Math.random(),
             y: Math.random(),
@@ -186,11 +188,14 @@
 
         // Nebulae
         nebulae.forEach(n => {
-            const grad = ctx.createRadialGradient(n.x * W, n.y * H, 0, n.x * W, n.y * H, n.r);
+            const nx = n.x * W, ny = n.y * H;
+            const grad = ctx.createRadialGradient(nx, ny, 0, nx, ny, n.r);
             grad.addColorStop(0, `hsla(${n.hue}, 50%, 20%, 0.05)`);
             grad.addColorStop(1, 'transparent');
             ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, W, H);
+            ctx.beginPath();
+            ctx.arc(nx, ny, n.r, 0, Math.PI * 2);
+            ctx.fill();
         });
 
         // Stars
