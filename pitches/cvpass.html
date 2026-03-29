@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVPass - Pitch Deck</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--g:#3A7A18;--gl:#C8E44E;--gd:#2A5A10;--gbg:#F0F7E6;--gbr:#D4E8B8;--bg:#FAFDF5;--t1:#0A0C08;--t2:#2A3220;--t3:#4A5840;--t4:#7A8868;--red:#E04040}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--t1)}
+
+.slide{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 80px;position:relative}
+.slide:nth-child(even){background:var(--bg)}
+.si{max-width:1040px;width:100%}
+.sn{position:absolute;top:24px;right:32px;font-size:0.72rem;color:#ccc;font-weight:600}
+.lt{position:absolute;top:24px;left:32px;font-size:0.85rem;font-weight:800;letter-spacing:-0.5px}
+.lt span{color:var(--g)}
+
+h1{font-size:3.8rem;font-weight:900;line-height:1.05;letter-spacing:-2.5px;margin-bottom:16px}
+h2{font-size:2.6rem;font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:24px}
+h3{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:var(--t1)}
+.sub{font-size:1.2rem;color:var(--t3);font-weight:400;line-height:1.5;max-width:700px}
+.g{color:var(--g)}.gl{color:var(--gl)}.r{color:var(--red)}.gr{color:var(--t4)}
+
+.cols{display:grid;gap:32px}.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:1fr 1fr 1fr}.c4{grid-template-columns:1fr 1fr 1fr 1fr}
+
+/* Cards */
+.cd{background:#fff;border:1.5px solid #eee;border-radius:16px;padding:28px;transition:box-shadow 0.2s}
+.cd:hover{box-shadow:0 4px 24px rgba(58,122,24,0.06)}
+.cda{background:var(--gbg);border:2px solid var(--gbr)}
+.cdd{background:var(--t1);color:#fff;border-radius:16px;padding:32px}
+
+/* Metrics */
+.mn{font-size:3.2rem;font-weight:900;letter-spacing:-1.5px;color:var(--g);line-height:1}
+.ml{font-size:0.82rem;color:var(--t4);margin-top:6px;font-weight:500}
+.mh{font-size:5.5rem;font-weight:900;letter-spacing:-3px;line-height:1}
+
+/* Screenshot placeholders */
+.screenshot{background:linear-gradient(135deg,#f0f4e6,#e8ecd8);border:2px dashed var(--gbr);border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--t4);font-size:0.85rem;font-weight:600;min-height:280px;text-align:center;padding:24px}
+.screenshot-dark{background:linear-gradient(135deg,#0A0C08,#141810);border:2px solid rgba(200,228,78,0.15);color:var(--gl)}
+
+/* Bar chart */
+.bar-chart{display:flex;align-items:flex-end;gap:12px;height:180px;padding:0 8px}
+.bar{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(180deg,var(--gl),var(--g));position:relative;min-width:40px;transition:height 0.5s}
+.bar-label{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-size:0.7rem;color:var(--t4);font-weight:600;white-space:nowrap}
+.bar-val{position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:0.75rem;color:var(--g);font-weight:700}
+
+/* Donut */
+.donut{width:160px;height:160px;position:relative;margin:0 auto}
+.donut svg{transform:rotate(-90deg)}
+.donut circle{fill:none;stroke-width:14;stroke-linecap:round}
+.donut .bg{stroke:#eee}
+.donut .fg{stroke:var(--g);transition:stroke-dashoffset 1s}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut-num{font-size:2.2rem;font-weight:900;color:var(--g)}
+.donut-text{font-size:0.75rem;color:var(--t4)}
+
+/* Table */
+.tb{width:100%;border-collapse:collapse;font-size:0.85rem}
+.tb th{text-align:left;padding:10px 14px;font-weight:700;color:var(--t4);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #eee}
+.tb td{padding:10px 14px;border-bottom:1px solid #f5f5f5}
+.tb tr.us td{background:var(--gbg);font-weight:600}
+.ck{color:var(--g);font-weight:700}.cx{color:#ddd}
+
+/* Timeline */
+.tl{display:flex;gap:0;margin:24px 0}
+.tli{flex:1;text-align:center;padding:16px 8px;border-top:4px solid #eee;position:relative}
+.tli.on{border-top-color:var(--g)}.tli.on .tlq{color:var(--g);font-weight:700}
+.tlq{font-size:0.78rem;color:var(--t4);font-weight:600;margin-bottom:6px}
+.tlt{font-size:0.8rem;color:var(--t3);line-height:1.4}
+
+.tag{display:inline-block;padding:4px 12px;border-radius:6px;font-size:0.78rem;font-weight:600;margin:3px}
+.tgg{background:var(--gbg);color:var(--g)}.tgr{background:#f5f5f5;color:var(--t4)}
+
+.quote{border-left:4px solid var(--g);padding:16px 24px;font-size:1.05rem;font-style:italic;color:var(--t3);background:var(--bg);border-radius:0 12px 12px 0;margin:16px 0}
+
+.cta{background:linear-gradient(135deg,var(--gd),var(--g));color:#fff;border-radius:20px;padding:48px;text-align:center}
+.cta h2{color:#fff}
+
+/* Divider */
+.sep{width:60px;height:4px;background:var(--gl);border-radius:2px;margin-bottom:24px}
+
+@media(max-width:768px){.slide{padding:40px 24px}h1{font-size:2.4rem}h2{font-size:1.7rem}.c2,.c3,.c4{grid-template-columns:1fr}.mh{font-size:3.5rem}.mn{font-size:2.2rem}.bar-chart{height:120px}}
+@media print{.slide{page-break-after:always;min-height:auto;padding:40px}}
+</style>
+</head>
+<body>
+
+<!-- 1 TITLE -->
+<div class="slide" style="background:#fff">
+<div class="si" style="text-align:center">
+  <div style="font-size:3.5rem;font-weight:900;letter-spacing:-1.5px;margin-bottom:12px">CV<span class="g">Pass</span></div>
+  <h1>AI Resume Screening<br>as an <span class="g">API</span></h1>
+  <p class="sub" style="margin:20px auto 36px;max-width:620px">One API call to match any resume against any job. Plug into any ATS, job board, or HR platform in minutes.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px">
+    <span class="tag tgg">B2B API</span><span class="tag tgg">Embeddable Widget</span><span class="tag tgg">Multi-language</span><span class="tag tgr">Pre-revenue</span>
+  </div>
+  <p class="gr" style="font-size:0.88rem">YC W26 | cvpass.nextry.app</p>
+</div><div class="sn">1 / 12</div></div>
+
+<!-- 2 PROBLEM -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>The Problem</h2>
+<div class="cols c2" style="margin-bottom:32px">
+  <div>
+    <div class="quote">"We review 250 applications per role. Recruiters spend 23 hours per hire just screening."</div>
+    <p class="gr" style="font-size:0.82rem;margin-top:8px">-- HR Director, mid-market SaaS</p>
+    <div style="margin-top:24px">
+      <div class="bar-chart">
+        <div class="bar" style="height:30%"><div class="bar-val">$3.5K</div><div class="bar-label">2020</div></div>
+        <div class="bar" style="height:45%"><div class="bar-val">$4.1K</div><div class="bar-label">2021</div></div>
+        <div class="bar" style="height:55%"><div class="bar-val">$4.4K</div><div class="bar-label">2022</div></div>
+        <div class="bar" style="height:70%"><div class="bar-val">$4.7K</div><div class="bar-label">2023</div></div>
+        <div class="bar" style="height:90%"><div class="bar-val">$5.5K</div><div class="bar-label">2024</div></div>
+        <div class="bar" style="height:100%;opacity:0.5;background:repeating-linear-gradient(45deg,var(--gl),var(--gl) 4px,var(--g) 4px,var(--g) 8px)"><div class="bar-val">$6.2K?</div><div class="bar-label">2025</div></div>
+      </div>
+      <p class="gr" style="font-size:0.75rem;text-align:center;margin-top:32px">Cost per hire trending up +17.5% YoY (SHRM)</p>
+    </div>
+  </div>
+  <div>
+    <div class="cd"><div class="mn r" style="font-size:4rem">75%</div><p style="margin-top:8px;font-weight:600">of resumes are unqualified</p><p class="gr" style="font-size:0.85rem;margin-top:8px">400-750 applications per offer in 2025. Most recruiter time wasted on non-fits.</p></div>
+    <div style="margin-top:16px" class="cols c3">
+      <div class="cd" style="text-align:center;padding:16px"><div class="mn r" style="font-size:1.8rem">$4,700</div><div class="ml">Cost/hire</div></div>
+      <div class="cd" style="text-align:center;padding:16px"><div class="mn r" style="font-size:1.8rem">41d</div><div class="ml">Time to fill</div></div>
+      <div class="cd" style="text-align:center;padding:16px"><div class="mn r" style="font-size:1.8rem">6 sec</div><div class="ml">Per resume</div></div>
+    </div>
+  </div>
+</div>
+</div><div class="sn">2 / 12</div></div>
+
+<!-- 3 SOLUTION + SCREENSHOTS -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>The Solution</h2>
+<p class="sub" style="margin-bottom:32px">Not another ATS. An intelligence layer that plugs into any system.</p>
+<div class="cols c3" style="margin-bottom:32px">
+  <div class="cda cd">
+    <h3>API</h3>
+    <p style="color:var(--t3);font-size:0.88rem">One POST. Structured JSON: score, skills, gaps, verdict.</p>
+    <pre style="background:#fff;border:1px solid var(--gbr);border-radius:8px;padding:12px;margin-top:12px;font-size:0.72rem;color:var(--g)"><code>POST /api/v1/screen
+{"score":87,"verdict":"good",
+ "matched_skills":["Python",
+  "Docker","FastAPI"]}</code></pre>
+  </div>
+  <div class="cda cd">
+    <h3>Widget</h3>
+    <p style="color:var(--t3);font-size:0.88rem">2 lines of HTML. Any site gets screening.</p>
+    <pre style="background:#fff;border:1px solid var(--gbr);border-radius:8px;padding:12px;margin-top:12px;font-size:0.72rem;color:var(--g)"><code>&lt;div id="cvpass"&gt;&lt;/div&gt;
+&lt;script src="cvpass.js"
+  data-key="cvp_..."
+  data-accent="#4F46E5"&gt;</code></pre>
+  </div>
+  <div class="cda cd">
+    <h3>Multi-language</h3>
+    <p style="color:var(--t3);font-size:0.88rem">Auto-detects JD language. Built for EU where jobs mix languages.</p>
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:6px">
+      <span class="tag tgg">EN</span><span class="tag tgg">DE</span><span class="tag tgg">FI</span><span class="tag tgg">RU</span><span class="tag tgg">FR</span>
+    </div>
+  </div>
+</div>
+<div class="cols c2">
+  <div class="screenshot">SCREENSHOT: Widget on a job board website<br><br>Replace with actual screenshot of<br>/widget/demo in light mode</div>
+  <div class="screenshot screenshot-dark">SCREENSHOT: API response in terminal<br><br>Replace with curl command + JSON response<br>from /api/v1/screen</div>
+</div>
+</div><div class="sn">3 / 12</div></div>
+
+<!-- 4 WHY NOW -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Why Now</h2>
+<div class="cols c2">
+  <div class="cd">
+    <h3>AI cost collapsed 100x</h3>
+    <p style="color:var(--t3);font-size:0.9rem;line-height:1.6">Resume screen: <strong>$0.002</strong> with Claude Haiku. Was $0.20+ with GPT-4 in 2023. API-first screening only viable now.</p>
+    <div style="margin-top:16px;display:flex;align-items:center;gap:16px">
+      <div style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--red)">$0.20</div><div class="ml">GPT-4 (2023)</div></div>
+      <div style="font-size:1.5rem;color:#ccc">&#8594;</div>
+      <div style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--g)">$0.002</div><div class="ml">Haiku (2025)</div></div>
+      <div style="background:var(--gbg);padding:4px 10px;border-radius:6px;font-weight:800;color:var(--g);font-size:0.85rem">100x</div>
+    </div>
+  </div>
+  <div class="cd"><h3>EU AI Act = auditable AI</h3><p style="color:var(--t3);font-size:0.9rem;line-height:1.6"><strong>67% of companies</strong> worry about AI bias in screening. Our structured JSON (matched skills, not black-box) is audit-ready. Compliance = competitive advantage.</p></div>
+  <div class="cd"><h3>11,000 ATS, none with native AI</h3><p style="color:var(--t3);font-size:0.9rem;line-height:1.6">No ATS has &gt;10% share. Most are CRUD apps. Building AI in-house costs $500K+. They need a plug-in solution — us.</p></div>
+  <div class="cd"><h3>Remote broke manual screening</h3><p style="color:var(--t3);font-size:0.9rem;line-height:1.6">Remote roles get 3-5x more applicants. <strong>3.2B applications/year</strong> on top 3 platforms alone. Manual screening is dead.</p></div>
+</div>
+</div><div class="sn">4 / 12</div></div>
+
+<!-- 5 MARKET -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Market</h2>
+<div class="cols c3" style="margin-bottom:32px">
+  <div style="text-align:center"><p class="gr" style="font-size:0.8rem;margin-bottom:8px">TAM - AI in HR</p><div class="mh g">$15B</div><p class="gr" style="margin-top:8px;font-size:0.82rem">By 2030. 24.8% CAGR<br>(Grand View Research)</p></div>
+  <div style="text-align:center"><p class="gr" style="font-size:0.8rem;margin-bottom:8px">SAM - ATS Market</p><div class="mh g">$4.9B</div><p class="gr" style="margin-top:8px;font-size:0.82rem">By 2030. 8.2% CAGR<br>(MarketsandMarkets)</p></div>
+  <div style="text-align:center"><p class="gr" style="font-size:0.8rem;margin-bottom:8px">SOM - Screening API</p><div class="mh g">$488M</div><p class="gr" style="margin-top:8px;font-size:0.82rem">10% of ATS needing<br>AI screening layer</p></div>
+</div>
+<div class="cols c4" style="margin-bottom:24px">
+  <div class="cd" style="text-align:center;padding:20px">
+    <div class="donut"><svg width="160" height="160" viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="66"/><circle class="fg" cx="80" cy="80" r="66" stroke-dasharray="415" stroke-dashoffset="71"/></svg><div class="donut-center"><div class="donut-num">83%</div><div class="donut-text">use AI screening</div></div></div>
+  </div>
+  <div class="cd" style="text-align:center;padding:20px"><div class="mn" style="margin-top:24px">3.2B</div><div class="ml">Applications/year<br>top 3 platforms</div></div>
+  <div class="cd" style="text-align:center;padding:20px"><div class="mn" style="margin-top:24px">62%</div><div class="ml">SMEs have NO ATS<br>(widget opportunity)</div></div>
+  <div class="cd" style="text-align:center;padding:20px"><div class="mn" style="margin-top:24px">98%</div><div class="ml">Fortune 500<br>use ATS</div></div>
+</div>
+<div class="cda cd"><div class="cols c2">
+  <p style="font-size:0.88rem;color:var(--t3)"><strong>Comparable:</strong> Finch (unified HR API) raised <strong>$68M</strong>, 12x revenue growth. Kombo (YC, EU API-first HR). CVPass is to screening what Finch is to payroll.</p>
+  <p style="font-size:0.88rem;color:var(--t3)"><strong>At $0.01/screen on 3.2B apps:</strong> <strong class="g">$32M/year</strong> volume floor. Enterprise ($0.05-0.50/screen): <strong class="g">$160M-1.6B</strong>.</p>
+</div></div>
+</div><div class="sn">5 / 12</div></div>
+
+<!-- 6 PRODUCT SCREENSHOTS -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Product</h2>
+<div class="cols c2" style="margin-bottom:24px">
+  <div class="screenshot" style="min-height:320px">SCREENSHOT: Main app - screening result<br><br>Replace with screenshot of<br>cvpass.nextry.app/app<br>showing score ring + skills</div>
+  <div class="screenshot screenshot-dark" style="min-height:320px">SCREENSHOT: API documentation page<br><br>Replace with screenshot of<br>/api-docs page</div>
+</div>
+<div class="cols c3">
+  <div class="screenshot" style="min-height:200px">SCREENSHOT: Widget customizer<br><br>/widget/demo<br>sidebar + preview</div>
+  <div class="screenshot" style="min-height:200px">SCREENSHOT: Admin dashboard<br><br>/admin<br>API keys tab</div>
+  <div class="screenshot" style="min-height:200px">SCREENSHOT: Mobile / Telegram bot<br><br>Telegram bot conversation<br>with screening result</div>
+</div>
+</div><div class="sn">6 / 12</div></div>
+
+<!-- 7 UNIT ECONOMICS -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Unit Economics</h2>
+<div class="cdd" style="margin-bottom:32px"><div class="cols c3">
+  <div style="text-align:center;padding:16px"><div class="mn" style="color:var(--gl);font-size:3rem">$0.002</div><div class="ml" style="color:#888">Cost per screen</div></div>
+  <div style="text-align:center;padding:16px"><div class="mn" style="color:var(--gl);font-size:3rem">$0.05</div><div class="ml" style="color:#888">Revenue per screen</div></div>
+  <div style="text-align:center;padding:16px"><div class="mn" style="color:var(--gl);font-size:3rem">96%</div><div class="ml" style="color:#888">Gross margin</div></div>
+</div></div>
+<div class="cols c2">
+  <div class="cd"><h3>B2B API customer</h3><p style="color:var(--t3);font-size:0.88rem;line-height:2">Mid-size job board: 5K screens/mo<br>Revenue: <strong>$250/mo</strong><br>AI cost: <strong>$10/mo</strong><br>Margin: <strong class="g">96%</strong><br>LTV (24mo avg): <strong class="g">$5,760</strong></p></div>
+  <div class="cd"><h3>B2C direct user</h3><p style="color:var(--t3);font-size:0.88rem;line-height:2">Pro plan: <strong>$19/mo</strong><br>Avg: 15 screens + 3 tailors<br>AI cost: <strong>$0.07/mo</strong><br>Margin: <strong class="g">99%</strong><br>LTV (3mo avg): <strong class="g">$57</strong></p></div>
+</div>
+</div><div class="sn">7 / 12</div></div>
+
+<!-- 8 TRACTION -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Traction</h2>
+<div class="cols c4" style="margin-bottom:32px">
+  <div class="cd" style="text-align:center"><div class="mn" style="font-size:2.5rem">76+</div><div class="ml">Users signed up</div></div>
+  <div class="cd" style="text-align:center"><div class="mn" style="font-size:2.5rem">API</div><div class="ml">Public API ready</div></div>
+  <div class="cd" style="text-align:center"><div class="mn" style="font-size:2.5rem">5</div><div class="ml">Languages</div></div>
+  <div class="cd" style="text-align:center"><div class="mn" style="font-size:2.5rem">&lt;3s</div><div class="ml">Latency</div></div>
+</div>
+<div class="cols c2">
+  <ul style="color:var(--t3);line-height:2.2;font-size:0.88rem;padding-left:20px">
+    <li>AI screening engine (synonym-aware, multi-lang)</li>
+    <li>AI resume tailoring + cover letter generation</li>
+    <li>REST API: key auth, rate limiting, usage analytics</li>
+    <li>Embeddable JS widget (8KB, zero deps)</li>
+    <li>Web app + Telegram bot + Stripe payments</li>
+    <li>Admin dashboard with full analytics</li>
+  </ul>
+  <div class="cda cd" style="text-align:center;display:flex;flex-direction:column;justify-content:center">
+    <div style="font-size:3rem;font-weight:900;color:var(--g)">3 weeks</div>
+    <p style="color:var(--t3);font-size:0.92rem;margin-top:8px">Full product. Solo. Zero funding.</p>
+    <p style="color:var(--t4);font-size:0.82rem;margin-top:4px">Backend, frontend, AI, payments, API, widget, admin, bot, 5 languages, docs</p>
+  </div>
+</div>
+</div><div class="sn">8 / 12</div></div>
+
+<!-- 9 COMPETITION -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Competition</h2>
+<table class="tb">
+  <tr><th>Company</th><th>Approach</th><th>API</th><th>Widget</th><th>Multi-lang</th><th>Price</th><th>Raised</th></tr>
+  <tr><td><strong>HireVue</strong></td><td>Video AI</td><td class="cx">No</td><td class="cx">No</td><td class="ck">Yes</td><td>Enterprise</td><td>$93M</td></tr>
+  <tr><td><strong>Eightfold AI</strong></td><td>Talent platform</td><td class="cx">No</td><td class="cx">No</td><td class="ck">Yes</td><td>Enterprise</td><td>$410M</td></tr>
+  <tr><td><strong>Harver</strong></td><td>Behavioral</td><td class="cx">No</td><td class="cx">No</td><td class="ck">Yes</td><td>Enterprise</td><td>$56M</td></tr>
+  <tr><td><strong>Textio</strong></td><td>JD writing</td><td class="cx">No</td><td class="cx">No</td><td class="cx">EN</td><td>Enterprise</td><td>$42M</td></tr>
+  <tr><td><strong>Manatal</strong></td><td>Full ATS</td><td class="cx">No</td><td class="cx">No</td><td>Limited</td><td>$15/user</td><td>$47M</td></tr>
+  <tr class="us"><td><strong class="g">CVPass</strong></td><td><strong>API-first screening</strong></td><td class="ck">Yes</td><td class="ck">Yes</td><td class="ck">5 langs</td><td>$0.03/call</td><td>$0</td></tr>
+</table>
+<div class="cda cd" style="margin-top:24px"><p style="font-size:0.95rem"><strong>They build another ATS. We build the intelligence layer for existing ATS.</strong> We don't compete with their customers -- we sell to them.</p></div>
+</div><div class="sn">9 / 12</div></div>
+
+<!-- 10 DEFENSIBILITY -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Defensibility</h2>
+<div class="cols c2">
+  <div class="cd"><h3>1. Widget distribution moat</h3><p style="color:var(--t3);font-size:0.9rem;line-height:1.6">"Powered by CVPass" on 1,000 job boards = brand lock-in. Each embed is a permanent distribution channel with zero CAC.</p></div>
+  <div class="cd"><h3>2. Multi-language complexity</h3><p style="color:var(--t3);font-size:0.9rem;line-height:1.6">EU jobs mix Finnish+English, German+English in one JD. US competitors can't do this. Deep prompt engineering per language pair.</p></div>
+  <div class="cd"><h3>3. Integration switching cost</h3><p style="color:var(--t3);font-size:0.9rem;line-height:1.6">Once an ATS integrates our API, switching = rewriting their screening pipeline. Same moat as Stripe. Technically possible, practically never happens.</p></div>
+  <div class="cd"><h3>4. Model-agnostic</h3><p style="color:var(--t3);font-size:0.9rem;line-height:1.6">Today Claude, tomorrow GPT or Llama. Value is in the <strong>API layer</strong> (auth, billing, widget, analytics) -- not the LLM. AI is a commodity; distribution isn't.</p></div>
+</div>
+</div><div class="sn">10 / 12</div></div>
+
+<!-- 11 GTM + TEAM -->
+<div class="slide"><div class="si"><div class="lt">CV<span>Pass</span></div>
+<div class="sep"></div>
+<h2>Go-to-Market</h2>
+<div class="tl" style="margin-bottom:32px">
+  <div class="tli on"><div class="tlq">Now</div><div class="tlt"><strong>B2C</strong><br>Organic, PMF</div></div>
+  <div class="tli on"><div class="tlq">Q2 '26</div><div class="tlt"><strong>API</strong><br>Free tier, Nordic</div></div>
+  <div class="tli"><div class="tlq">Q3 '26</div><div class="tlt"><strong>Widget</strong><br>Job board partners</div></div>
+  <div class="tli"><div class="tlq">Q4 '26</div><div class="tlt"><strong>DACH</strong><br>German market</div></div>
+  <div class="tli"><div class="tlq">2027</div><div class="tlt"><strong>US + Series A</strong></div></div>
+</div>
+<div class="cols c2" style="margin-bottom:32px">
+  <div class="cd"><h3>Widget = Trojan horse</h3><p style="color:var(--t3);font-size:0.88rem">Boards embed free. Users see "Powered by CVPass". Every install = distribution + brand. Zero CAC loop.</p></div>
+  <div class="cd"><h3>Land and expand</h3><p style="color:var(--t3);font-size:0.88rem">Free 100/mo -> dev tries -> boss sees -> paid. Stripe/Twilio playbook. Self-serve, no sales team needed initially.</p></div>
+</div>
+<div class="sep"></div>
+<h2>Team</h2>
+<div class="cols c2" style="align-items:center">
+  <div>
+    <h3>Solo founder. Full stack. Ships fast.</h3>
+    <p style="color:var(--t3);font-size:0.92rem;line-height:1.7;margin-top:12px">Entire product in <strong>3 weeks</strong>. <strong>CV + generative AI + full-stack</strong> background. Built AI products for e-commerce.</p>
+    <p style="color:var(--t3);font-size:0.92rem;line-height:1.7;margin-top:8px">Based in <strong>Finland</strong>. Native EU recruitment understanding, GDPR, multilingual.</p>
+    <p style="font-size:0.92rem;line-height:1.7;margin-top:8px;font-weight:600">Hiring: 1 backend eng + 1 sales/partnerships.</p>
+  </div>
+  <div class="screenshot" style="min-height:200px">PHOTO: Founder headshot<br><br>Replace with your photo<br>+ name + title</div>
+</div>
+</div><div class="sn">11 / 12</div></div>
+
+<!-- 12 ASK -->
+<div class="slide" style="background:#fff"><div class="si" style="text-align:center"><div class="lt">CV<span>Pass</span></div>
+<div class="cta">
+  <h2 style="font-size:2.2rem">The Ask</h2>
+  <div class="mh" style="color:#fff;margin:24px 0">$500K</div>
+  <p style="color:rgba(255,255,255,0.9);font-size:1.15rem;margin:0 auto 32px;max-width:500px">Seed. 2 hires. B2B sales. DACH expansion.</p>
+  <div class="cols c3" style="margin-top:24px">
+    <div><div style="font-size:1.6rem;font-weight:800;color:var(--gl)">40%</div><div style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin-top:4px">Engineering</div></div>
+    <div><div style="font-size:1.6rem;font-weight:800;color:var(--gl)">35%</div><div style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin-top:4px">Sales + Partners</div></div>
+    <div><div style="font-size:1.6rem;font-weight:800;color:var(--gl)">25%</div><div style="font-size:0.82rem;color:rgba(255,255,255,0.7);margin-top:4px">Infra + Runway</div></div>
+  </div>
+</div>
+<p style="margin-top:40px;color:var(--t4);font-size:0.9rem">cvpass.nextry.app &nbsp;|&nbsp; /api-docs &nbsp;|&nbsp; /widget/demo &nbsp;|&nbsp; /pitch</p>
+</div><div class="sn">12 / 12</div></div>
+
+</body>
+</html>

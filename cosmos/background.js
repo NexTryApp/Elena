@@ -30,6 +30,17 @@
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
+    // Touch support — shooting stars target finger position
+    document.addEventListener('touchstart', e => {
+        const t = e.touches[0];
+        mouseX = t.clientX;
+        mouseY = t.clientY;
+    }, { passive: true });
+    document.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        mouseX = t.clientX;
+        mouseY = t.clientY;
+    }, { passive: true });
 
     // Stars
     const starCount = isMobile ? 60 : 240;

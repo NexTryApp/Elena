@@ -972,6 +972,11 @@ img { max-width: 100%; display: block; }
 
 @media (hover: none) and (pointer: coarse) {
     .gallery-overlay { opacity: 1; background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.6)); }
-    .gallery-item:hover img { transform: none; }
-    .gallery-item:hover { transform: none; }
+    .gallery-item:hover img, .gallery-item:active img { transform: none; filter: none; }
+    .gallery-item:hover, .gallery-item:active { transform: none; }
+    .project-card:hover, .stat:hover, .highlight-card:hover,
+    .skill-category:hover, .contact-card:hover, .btn-primary:hover,
+    .btn-outline:hover { transform: none; }
+    .filter-btn { min-height: 44px; display: inline-flex; align-items: center; }
+    .lightbox-close, .lightbox-prev, .lightbox-next { min-width: 48px; min-height: 48px; }
 }

@@ -30,6 +30,21 @@
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
+    // Touch support — pop bubbles with finger
+    document.addEventListener('touchstart', e => {
+        const t = e.touches[0];
+        mouseX = t.clientX;
+        mouseY = t.clientY;
+    }, { passive: true });
+    document.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        mouseX = t.clientX;
+        mouseY = t.clientY;
+    }, { passive: true });
+    document.addEventListener('touchend', () => {
+        mouseX = -999;
+        mouseY = -999;
+    }, { passive: true });
 
     const MAX_BUBBLES = isMobile ? 12 : 40;
     let bubbles = [];

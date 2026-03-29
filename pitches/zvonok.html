@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zvonok</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fff;color:#111;overflow:hidden;height:100vh}
+.s{display:none;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;padding:48px 64px;text-align:center;animation:fi .2s}
+.s.a{display:flex}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.n{font-size:144px;font-weight:900;line-height:1;letter-spacing:-6px}
+.n2{font-size:80px;font-weight:900;letter-spacing:-3px;line-height:1}
+h1{font-size:64px;font-weight:900;letter-spacing:-3px;line-height:1.1}
+h2{font-size:44px;font-weight:700;letter-spacing:-1px;line-height:1.2}
+h3{font-size:26px;font-weight:600}
+p{font-size:24px;color:#777;line-height:1.5;max-width:780px}
+.g{color:#22C55E}.o{color:#F97316}.r{color:#EF4444}.b{color:#111}
+.sub{font-size:17px;color:#bbb;margin-top:4px}
+.pill{background:#F0FDF4;color:#16A34A;padding:5px 18px;border-radius:99px;font-size:13px;font-weight:700;margin-bottom:28px;letter-spacing:1.5px;text-transform:uppercase}
+.row3{display:flex;gap:24px;margin-top:36px;width:100%;max-width:1100px}
+.row3>div{flex:1;background:#FAFAFA;border-radius:20px;padding:32px 20px}
+.phone{width:200px;height:380px;background:#FAFAFA;border-radius:28px;border:3px solid #ddd;padding:14px 10px;display:flex;flex-direction:column;gap:6px;position:relative}
+.phone::before{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:50px;height:3px;background:#ddd;border-radius:4px}
+.phone-t{font-size:18px;font-weight:800;color:#22C55E;margin-top:10px;text-align:left}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:2px}
+.fb{background:#E8F5E9;border-radius:8px;padding:9px 3px;font-size:11px;font-weight:600;color:#333;text-align:center}
+.bar{height:44px;border-radius:8px;display:flex;align-items:center;padding:0 16px;font-weight:700;color:#fff;margin-bottom:8px;font-size:17px}
+.nav{position:fixed;bottom:24px;right:32px;display:flex;gap:8px;z-index:99}
+.nav button{width:40px;height:40px;border-radius:50%;border:2px solid #ddd;background:#fff;color:#aaa;font-size:16px;cursor:pointer;transition:.15s}
+.nav button:hover{border-color:#22C55E;color:#22C55E}
+.ct{position:fixed;bottom:30px;left:32px;font-size:13px;color:#ccc}
+@media(max-width:768px){.s{padding:28px 20px}h1{font-size:36px}.n{font-size:72px}.n2{font-size:48px}.row3{flex-direction:column}.phone{width:160px;height:300px}}
+</style>
+</head>
+<body>
+
+<!-- 1: HOOK -->
+<div class="s a">
+  <div style="font-size:96px">&#x1F4DE;</div>
+  <h1 style="margin-top:16px"><span class="g">Zvonok</span></h1>
+  <h2 style="font-weight:500;color:#555;margin-top:12px">Internet calls for parents<br>who can't use WhatsApp</h2>
+</div>
+
+<!-- 2: PROBLEM — one punch -->
+<div class="s">
+  <div class="pill">PROBLEM</div>
+  <h1>My mom has a smartphone.<br>She can't call me on it.</h1>
+  <p style="margin-top:32px;font-size:28px;color:#111">
+    Every messaging app assumes digital literacy.<br>
+    <strong class="o">304 million migrants'</strong> parents don't have it.
+  </p>
+  <p class="sub" style="margin-top:16px">UN 2024: 304M international migrants. AARP 2025: 46% of 65+ can't navigate apps despite owning smartphones.</p>
+</div>
+
+<!-- 3: WHY NOW -->
+<div class="s">
+  <div class="pill">WHY NOW</div>
+  <h1>The last billion smartphones<br>went to <span class="o">their parents</span></h1>
+  <div class="row3" style="max-width:900px">
+    <div style="text-align:center">
+      <p class="sub">2015</p>
+      <div class="n2 r">18%</div>
+      <p>of 65+ had smartphones</p>
+    </div>
+    <div style="text-align:center">
+      <p class="sub">2025</p>
+      <div class="n2 g">77%</div>
+      <p>of 65+ have smartphones</p>
+    </div>
+    <div style="text-align:center">
+      <p class="sub">But</p>
+      <div class="n2 o">0</div>
+      <p>apps designed for them</p>
+    </div>
+  </div>
+  <p style="margin-top:28px;font-size:22px;color:#111"><strong>Hardware arrived. Software didn't.</strong> That's the gap.</p>
+</div>
+
+<!-- 4: INSIGHT -->
+<div class="s">
+  <div class="pill">INSIGHT</div>
+  <h1>The product is <span class="r">subtraction</span>,<br>not addition</h1>
+  <p style="margin-top:28px;font-size:26px;color:#111">WhatsApp can do calling. But it also does chat, status, channels, communities, payments, AI. Every extra button is a wrong turn for a 70-year-old.</p>
+  <p style="margin-top:16px;font-size:28px;font-weight:700"><span class="g">Zvonok has one screen with names. Tap = call.</span></p>
+</div>
+
+<!-- 5: PRODUCT -->
+<div class="s">
+  <div class="pill">PRODUCT</div>
+  <div style="display:flex;gap:56px;align-items:center">
+    <div class="phone">
+      <div class="phone-t">Zvonok</div>
+      <div style="font-size:10px;color:#999;margin-bottom:2px">Favorites</div>
+      <div class="fg">
+        <div class="fb" style="background:#C8E6C9">&#x1F469; Daughter</div>
+        <div class="fb">&#x1F468; Son</div>
+        <div class="fb">&#x1F475; Sister</div>
+        <div class="fb">&#x1F468;&#x200D;&#x2695; Doctor</div>
+        <div class="fb">&#x1F469;&#x200D;&#x1F373; Neighbor</div>
+        <div class="fb">&#x1F468; Brother</div>
+      </div>
+      <div style="font-size:10px;color:#bbb;margin-top:auto;text-align:center">Tap = instant call</div>
+    </div>
+    <div style="text-align:left;max-width:480px">
+      <h2>What mom sees</h2>
+      <p style="margin-top:16px;font-size:22px;color:#111;line-height:2">
+        &#x2705; Big names she recognizes<br>
+        &#x2705; Full-screen ring when called<br>
+        &#x2705; No chat, no settings, no login<br>
+        &#x2705; Child sets it up remotely
+      </p>
+      <p style="margin-top:20px;font-size:20px"><strong>Android</strong> (native APK) + <strong>iPhone</strong> (PWA in Safari)<br>No App Store approval needed for v1.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 6: DISTRIBUTION -->
+<div class="s">
+  <div class="pill">DISTRIBUTION</div>
+  <h1>The child is the channel</h1>
+  <p style="margin-top:12px">You don't market to grandma. You reach her daughter in Berlin.</p>
+  <div class="row3" style="margin-top:28px;max-width:960px">
+    <div style="text-align:left;padding:24px">
+      <h3>&#x1F501; Viral loop</h3>
+      <p style="font-size:18px;margin-top:8px">Child installs on parent's phone during visit. Tells siblings. Each sibling has in-laws. <strong>One install = 3-5 referrals.</strong></p>
+    </div>
+    <div style="text-align:left;padding:24px">
+      <h3>&#x1F465; Communities</h3>
+      <p style="font-size:18px;margin-top:8px">Russian diaspora FB groups: <strong>2M+ members</strong> in Finland, Germany, Israel. Indian expat groups. Filipino OFW forums.</p>
+    </div>
+    <div style="text-align:left;padding:24px">
+      <h3>&#x1F3AF; Beachhead</h3>
+      <p style="font-size:18px;margin-top:8px">Russian speakers in Nordics (founder's network) &rarr; India (18M) &rarr; Philippines (10M) &rarr; LatAm (11M)</p>
+    </div>
+  </div>
+</div>
+
+<!-- 7: COMPETITION -->
+<div class="s">
+  <div class="pill">LANDSCAPE</div>
+  <h2>Why not existing solutions?</h2>
+  <div style="text-align:left;max-width:800px;margin-top:28px;font-size:24px;line-height:2.2">
+    <strong>WhatsApp / Viber / Telegram</strong> — too complex for elderly. Built for engagement, not simplicity. <span class="r">Won't simplify: less features = less revenue.</span><br>
+    <strong>GrandPad / Oscar Senior</strong> — require special hardware ($300+ tablet) or monthly subscription ($40/mo). <span class="r">High barrier.</span><br>
+    <strong>Jio Phone / KaiOS</strong> — feature phones. No WebRTC, region-locked to India. <span class="r">Not global.</span><br>
+    <strong class="g">Zvonok</strong> — works on any existing Android/iPhone. <span class="g">Free. 30-second setup. Global.</span>
+  </div>
+</div>
+
+<!-- 8: ECONOMICS -->
+<div class="s">
+  <div class="pill">UNIT ECONOMICS</div>
+  <div style="display:flex;gap:56px;margin-top:16px;align-items:flex-end">
+    <div style="text-align:center"><div class="n2 g">$0</div><p>per call</p><p class="sub">WebRTC P2P</p></div>
+    <div style="text-align:center"><div class="n2 b">$0.005</div><p>per family/mo</p><p class="sub">At 1K on $5 VPS</p></div>
+    <div style="text-align:center"><div class="n2 g">97%</div><p>gross margin</p><p class="sub">At $3 ARPU</p></div>
+  </div>
+  <h2 style="margin-top:40px">Revenue: free core + premium</h2>
+  <div style="width:100%;max-width:650px;margin-top:20px">
+    <div class="bar" style="width:100%;background:#22C55E">Free — unlimited 1:1 calls forever</div>
+    <div class="bar" style="width:55%;background:#F97316">Zvonok+ $3/mo — group calls (family reunion), call recording</div>
+    <div class="bar" style="width:30%;background:#111">Zvonok Family $8/mo — scheduled calls, activity alerts</div>
+  </div>
+</div>
+
+<!-- 9: TRACTION + VALIDATION -->
+<div class="s">
+  <div class="pill">TRACTION</div>
+  <h2>Week 1 validation</h2>
+  <div class="row3" style="max-width:900px;margin-top:24px">
+    <div>
+      <div class="n2 g">&#x2705;</div>
+      <h3>Product complete</h3>
+      <p style="font-size:18px">Backend, Android APK, iOS PWA, admin panel. Security audited.</p>
+    </div>
+    <div>
+      <div class="n2 o">5</div>
+      <h3>families testing</h3>
+      <p style="font-size:18px">Real calls between Finland ↔ Russia. Measuring: setup time, call success rate, weekly frequency.</p>
+    </div>
+    <div>
+      <div class="n2 b">Q</div>
+      <h3>Key question</h3>
+      <p style="font-size:18px"><strong>Do families call weekly?</strong> If yes: retention. If not: pivot to scheduled check-ins.</p>
+    </div>
+  </div>
+  <p style="margin-top:28px;font-size:22px"><strong>Target metrics by June:</strong> 100 families, 60%+ W1 retention, 3+ calls/week per family</p>
+</div>
+
+<!-- 10: DEFENSIBILITY -->
+<div class="s">
+  <div class="pill">MOAT</div>
+  <h1>Trust with the family unit</h1>
+  <div style="text-align:left;max-width:700px;margin-top:28px">
+    <p style="font-size:24px;color:#111;line-height:1.9">
+      <span class="g" style="font-weight:700">&#x2192;</span> The child <em>trusts you</em> with their parent's phone. That's not a feature — it's a relationship.<br><br>
+      <span class="g" style="font-weight:700">&#x2192;</span> Once installed, <strong>Zvonok becomes the only app mom uses</strong>. Switching cost = teaching her something new.<br><br>
+      <span class="g" style="font-weight:700">&#x2192;</span> Network effect: every family member pulls in spouses' families. One user seeds 3-5 households.
+    </p>
+  </div>
+</div>
+
+<!-- 11: ASK -->
+<div class="s">
+  <div class="pill">ASK</div>
+  <div class="n o">$500K</div>
+  <p>Pre-seed &middot; 18 months to product-market fit</p>
+  <div style="display:flex;gap:40px;margin-top:32px;text-align:center">
+    <div><div style="font-size:40px">&#x1F468;&#x200D;&#x1F4BB;</div><h3>Hire</h3><p style="font-size:16px">Mobile eng + growth lead</p></div>
+    <div><div style="font-size:40px">&#x1F5A5;&#xFE0F;</div><h3>Infra</h3><p style="font-size:16px">Multi-region TURN relay</p></div>
+    <div><div style="font-size:40px">&#x1F34F;</div><h3>iOS</h3><p style="font-size:16px">Native app + App Store</p></div>
+    <div><div style="font-size:40px">&#x1F30E;</div><h3>Localize</h3><p style="font-size:16px">RU HI ES TL AR</p></div>
+  </div>
+  <p style="margin-top:28px;font-size:20px;color:#111"><strong>Milestone:</strong> 10K families &middot; 60% W1 retention &middot; $15K MRR &rarr; raise Seed</p>
+</div>
+
+<!-- 12: CLOSE -->
+<div class="s">
+  <div style="font-size:120px">&#x1F4DE;</div>
+  <h1 style="margin-top:16px"><span class="g">Zvonok</span></h1>
+  <h2 style="font-weight:400;color:#999;margin-top:12px">Every migrant left someone behind<br>who just wants to hear their voice</h2>
+</div>
+
+<div class="nav"><button onclick="P()">&#x2190;</button><button onclick="N()">&#x2192;</button></div>
+<div class="ct" id="c">1/12</div>
+<script>
+let i=0;const s=document.querySelectorAll('.s'),t=s.length;
+function g(x){s[i].classList.remove('a');i=((x%t)+t)%t;s[i].classList.add('a');document.getElementById('c').textContent=`${i+1}/${t}`}
+function N(){g(i+1)}function P(){g(i-1)}
+document.addEventListener('keydown',e=>{if('ArrowRight Space Enter'.includes(e.code)){e.preventDefault();N()}if(e.code==='ArrowLeft'||e.code==='Backspace'){e.preventDefault();P()}});
+let tx=0;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)d>0?P():N()});
+</script>
+</body>
+</html>

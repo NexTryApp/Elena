@@ -21,12 +21,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- REMOVED: FOUC prevention script (no longer needed, themes are separate pages) -->
 </head>
 <body>
-    <!-- WebGL Fluid Canvas (Fire theme) -->
     <canvas id="fluid-canvas"></canvas>
-    <!-- REMOVED: bg-canvas (themes are now separate pages) -->
 
     <!-- Navigation -->
     <nav class="nav" id="nav">
@@ -55,6 +52,7 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#startups">Startups</a>
             <a href="#gallery">Gallery</a>
             <a href="#contact">Contact</a>
         </div>
@@ -92,8 +90,6 @@
                 <a href="#gallery" class="btn btn-outline">View Portfolio</a>
             </div>
         </div>
-        <!-- REMOVED: scroll indicator -->
-
     </section>
 
     <!-- About Section -->
@@ -307,8 +303,6 @@
                     <span class="project-link">Try CVPass &rarr;</span>
                 </a>
 
-                <!-- REMOVED: Bubble Pop game card — too casual for professional portfolio -->
-
                 <a href="https://civitai.com/user/Sa_May" target="_blank" class="project-card glow-border">
                     <div class="project-badge badge-civitai">Civitai</div>
                     <h3 class="project-name">Sa_May Models</h3>
@@ -321,6 +315,155 @@
                     </div>
                     <span class="project-link">View on Civitai &rarr;</span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Startups Section -->
+    <section class="section" id="startups">
+        <div class="container">
+            <h2 class="section-title">My Startups</h2>
+            <p class="startups-subtitle">Products I've built from zero — some live, some in active development. This section is being updated.</p>
+
+            <div class="startups-grid">
+                <div class="startup-card startup-live">
+                    <div class="startup-status"><span class="status-dot status-live"></span> Live</div>
+                    <h3 class="startup-name">NexTry</h3>
+                    <p class="startup-tagline">AI Virtual Try-On Platform</p>
+                    <p class="startup-desc">16+ AI generator tools for fashion: virtual try-on, mannequin generation, style transfer, colorization. Optimized ComfyUI pipelines with 2-5x speed gains.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">2,900+</span>
+                            <span class="metric-label">Users</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">16+</span>
+                            <span class="metric-label">AI Tools</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">2-5x</span>
+                            <span class="metric-label">Speed Gains</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="https://nextry.app" target="_blank" class="startup-link-btn">Visit Platform &rarr;</a>
+                        <span class="startup-link-pitch" style="opacity:0.4;cursor:default">Pitch Deck (soon)</span>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-live">
+                    <div class="startup-status"><span class="status-dot status-beta"></span> Beta</div>
+                    <h3 class="startup-name">BotBazar</h3>
+                    <p class="startup-tagline">AI Bot Marketplace</p>
+                    <p class="startup-desc">Full-stack monorepo marketplace for AI bots. Multi-role auth, Stripe escrow payments, AI moderation pipeline, bot arena with role-based access.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">Stripe</span>
+                            <span class="metric-label">Escrow</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">LLM</span>
+                            <span class="metric-label">Moderation</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">Multi</span>
+                            <span class="metric-label">Role Auth</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="https://botbazar.ai" target="_blank" class="startup-link-btn">Visit Platform &rarr;</a>
+                        <span class="startup-link-pitch" style="opacity:0.4;cursor:default">Pitch Deck (soon)</span>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-live">
+                    <div class="startup-status"><span class="status-dot status-live"></span> Live</div>
+                    <h3 class="startup-name">CVPass</h3>
+                    <p class="startup-tagline">AI Resume Screening</p>
+                    <p class="startup-desc">AI-powered tool: checks resumes against any job posting in 10 seconds. Match scoring, gap analysis, skill extraction, and tailored resume generation.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">10s</span>
+                            <span class="metric-label">Analysis</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">AI</span>
+                            <span class="metric-label">Match Score</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">PDF</span>
+                            <span class="metric-label">Export</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="https://cvpass.nextry.app" target="_blank" class="startup-link-btn">Try CVPass &rarr;</a>
+                        <a href="pitches/cvpass.html" target="_blank" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-dev">
+                    <div class="startup-status"><span class="status-dot status-wip"></span> In Development</div>
+                    <h3 class="startup-name">Zvonok</h3>
+                    <p class="startup-tagline">Free VoIP Calling App</p>
+                    <p class="startup-desc">Free voice calls over internet — Android app + PWA + NestJS backend with WebRTC. Zero cost for users, ad-supported model.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">WebRTC</span>
+                            <span class="metric-label">Protocol</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">PWA</span>
+                            <span class="metric-label">+ Android</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">Free</span>
+                            <span class="metric-label">For Users</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="pitches/zvonok.html" target="_blank" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-dev">
+                    <div class="startup-status"><span class="status-dot status-wip"></span> In Development</div>
+                    <h3 class="startup-name">SecondHand</h3>
+                    <p class="startup-tagline">C2C Clothing Marketplace</p>
+                    <p class="startup-desc">Peer-to-peer second-hand clothing marketplace for the Finnish market. NestJS + Next.js + Stripe Connect, AI-powered listing assistance.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">Stripe</span>
+                            <span class="metric-label">Connect</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">AI</span>
+                            <span class="metric-label">Listings</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">Finland</span>
+                            <span class="metric-label">Market</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="pitches/secondhand.html" target="_blank" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-dev">
+                    <div class="startup-status"><span class="status-dot status-wip"></span> In Development</div>
+                    <h3 class="startup-name">Hive</h3>
+                    <p class="startup-tagline">Coming Soon</p>
+                    <p class="startup-desc">Details coming soon. Stay tuned for updates on this project.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">&mdash;</span>
+                            <span class="metric-label">TBA</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="pitches/hive.html" target="_blank" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -597,20 +740,13 @@
         <p>&copy; 2026 Elena Matyushenko. Built with passion and AI.</p>
     </footer>
 
-    <!-- WebGL Fluid Simulation (PavelDoGreat proven library) -->
     <script src="https://cdn.jsdelivr.net/npm/webgl-fluid@0.3"></script>
     <script>
-        // Initialize WebGL fluid (Fire theme — always active on this page)
         try {
             var fc = document.querySelector('#fluid-canvas');
             WebGLFluid(fc, {
                 IMMEDIATE: true,
                 TRIGGER: 'hover',
-                /* REMOVED: AUTO: true — setInterval keeps firing when tab is hidden,
-                   causing splats to accumulate while rAF is paused. Replaced with
-                   rAF-based timer below that naturally pauses with the tab. */
-                // AUTO: true,
-                // INTERVAL: 4000,
                 SPLAT_COUNT: 1,
                 TRANSPARENT: true,
                 BLOOM: true,
@@ -626,29 +762,36 @@
                 DENSITY_DISSIPATION: 1.5,
                 VELOCITY_DISSIPATION: 1.2,
                 PRESSURE: 0.8,
-                BACK_COLOR: { r: 0, g: 0, b: 0 },
+                BACK_COLOR: { r: 0, g: 0, b: 0 }
             });
-            // Forward mousemove to canvas so fluid follows cursor
+            // Forward mouse events to fluid canvas
             document.addEventListener('mousemove', function(e) {
-                fc.dispatchEvent(new MouseEvent('mousemove', {
-                    clientX: e.clientX, clientY: e.clientY, bubbles: false
-                }));
+                fc.dispatchEvent(new MouseEvent('mousemove', { clientX: e.clientX, clientY: e.clientY, bubbles: false }));
             });
             document.addEventListener('mousedown', function(e) {
-                fc.dispatchEvent(new MouseEvent('mousedown', {
-                    clientX: e.clientX, clientY: e.clientY, bubbles: false
-                }));
+                fc.dispatchEvent(new MouseEvent('mousedown', { clientX: e.clientX, clientY: e.clientY, bubbles: false }));
             });
-            // rAF-based auto splat — pauses naturally when tab is hidden
-            (function autoSplat() {
+            // Forward touch events to fluid canvas
+            document.addEventListener('touchstart', function(e) {
+                var t = e.touches[0];
+                fc.dispatchEvent(new MouseEvent('mousedown', { clientX: t.clientX, clientY: t.clientY, bubbles: false }));
+            }, { passive: true });
+            document.addEventListener('touchmove', function(e) {
+                var t = e.touches[0];
+                fc.dispatchEvent(new MouseEvent('mousemove', { clientX: t.clientX, clientY: t.clientY, bubbles: false }));
+            }, { passive: true });
+            document.addEventListener('touchend', function(e) {
+                var t = e.changedTouches[0];
+                fc.dispatchEvent(new MouseEvent('mouseup', { clientX: t.clientX, clientY: t.clientY, bubbles: false }));
+            }, { passive: true });
+            // Auto splat (rAF-based, pauses with tab)
+            (function() {
                 var lastSplat = 0;
                 function tick(now) {
                     if (now - lastSplat > 4000) {
                         lastSplat = now;
-                        var x = 0.15 + Math.random() * 0.7;
-                        var y = 0.15 + Math.random() * 0.7;
-                        var cx = x * fc.clientWidth;
-                        var cy = y * fc.clientHeight;
+                        var cx = (0.15 + Math.random() * 0.7) * fc.clientWidth;
+                        var cy = (0.15 + Math.random() * 0.7) * fc.clientHeight;
                         fc.dispatchEvent(new MouseEvent('mousedown', { clientX: cx, clientY: cy, bubbles: false }));
                         setTimeout(function() {
                             fc.dispatchEvent(new MouseEvent('mouseup', { clientX: cx, clientY: cy, bubbles: false }));

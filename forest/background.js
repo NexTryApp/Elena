@@ -31,6 +31,21 @@
         cursorX = e.clientX;
         cursorY = e.clientY;
     });
+    // Touch support — cherry blossoms spawn from finger
+    document.addEventListener('touchstart', e => {
+        const t = e.touches[0];
+        cursorX = t.clientX;
+        cursorY = t.clientY;
+    }, { passive: true });
+    document.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        cursorX = t.clientX;
+        cursorY = t.clientY;
+    }, { passive: true });
+    document.addEventListener('touchend', () => {
+        cursorX = -999;
+        cursorY = -999;
+    }, { passive: true });
 
     // ---- Leaves ----
     const LEAF_COUNT = isMobile ? 8 : 22;

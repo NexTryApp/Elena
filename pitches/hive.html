@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hive — YC Pitch Deck</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .slide { padding: 40px 24px; }
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    font-size: 13px;
+    color: #999;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: clamp(16px, 2vw, 22px);
+    color: #555;
+    line-height: 1.6;
+    max-width: 700px;
+    font-weight: 400;
+  }
+
+  .accent { color: #f97316; }
+  .gray { color: #888; }
+  .green { color: #16a34a; }
+  .red { color: #dc2626; }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: #eee;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .stat {
+    text-align: left;
+  }
+
+  .stat-number {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .stat-source {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 36px;
+  }
+
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  .card {
+    padding: 28px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fafafa;
+  }
+
+  .card h3 { font-size: 17px; margin-bottom: 8px; }
+  .card p { font-size: 14px; color: #555; line-height: 1.6; }
+
+  .timeline {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f97316;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .timeline-dot.future { background: #ddd; }
+
+  .timeline-text h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .timeline-text p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #f97316;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .pill.gray-pill { background: #f3f4f6; color: #555; }
+
+  .quote {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic;
+    color: #333;
+    line-height: 1.6;
+    border-left: 3px solid #f97316;
+    padding-left: 24px;
+    margin: 32px 0;
+    max-width: 700px;
+  }
+
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 28px;
+    font-size: 14px;
+  }
+
+  .comp-table th {
+    text-align: left;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-bottom: 2px solid #1a1a1a;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+  }
+
+  .comp-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .comp-table tr:last-child td { border-bottom: none; }
+
+  .comp-table .highlight {
+    background: #fff7ed;
+    font-weight: 600;
+  }
+
+  .ask-box {
+    padding: 40px;
+    border: 2px solid #f97316;
+    border-radius: 16px;
+    margin-top: 36px;
+    text-align: center;
+  }
+
+  .ask-amount {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #f97316;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .team-card {
+    padding: 24px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+  }
+
+  .team-name { font-size: 18px; font-weight: 700; }
+  .team-role { font-size: 13px; color: #f97316; font-weight: 600; margin-top: 2px; }
+  .team-bio { font-size: 13px; color: #555; margin-top: 8px; line-height: 1.5; }
+
+  .footer-slide {
+    text-align: center;
+  }
+
+  .footer-slide h1 {
+    margin-bottom: 16px;
+  }
+
+  .contact-info {
+    font-size: 16px;
+    color: #888;
+    margin-top: 24px;
+    line-height: 1.8;
+  }
+
+  .logo {
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: #f97316;
+    position: absolute;
+    top: 32px;
+    left: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .logo { top: 16px; left: 24px; font-size: 18px; }
+    .slide-number { top: 16px; right: 24px; }
+  }
+
+  ul { padding-left: 0; list-style: none; }
+  ul li {
+    padding: 8px 0;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  ul li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f97316;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .flow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .flow-step {
+    padding: 12px 20px;
+    background: #f9fafb;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+  }
+  .flow-arrow { color: #ccc; font-size: 20px; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SLIDE 1: TITLE ==================== -->
+<section class="slide footer-slide">
+  <div class="logo">HIVE</div>
+  <div class="pill">YC W26 Application</div>
+  <h1>AI knows you.<br><span class="accent">You don't.</span></h1>
+  <p class="subtitle" style="margin: 0 auto;">
+    Extract your AI memory. Own your digital identity.<br>
+    The portable identity layer for the AI era.
+  </p>
+  <div style="margin-top: 40px; font-size: 14px; color: #999;">
+    hive.nextry.app &middot; hello@hive.nextry.app
+  </div>
+  <div class="slide-number">1</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 2: PROBLEM ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">2</div>
+  <div class="pill gray-pill">PROBLEM</div>
+  <h2>Every AI has a secret<br>profile on you.</h2>
+  <p class="subtitle">
+    1.1 billion people use AI chatbots. Every conversation builds a hidden model
+    of who you are — your skills, personality, blind spots. But you can't see it,
+    export it, or control it.
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-number">1.1B</div>
+      <div class="stat-label">people use AI chatbots</div>
+      <div class="stat-source">Resourcera, 2025</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">82%</div>
+      <div class="stat-label">see AI data loss as a serious personal threat</div>
+      <div class="stat-source">Relyance AI, 2025</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">0</div>
+      <div class="stat-label">tools let you extract & own your AI identity</div>
+      <div class="stat-source"></div>
+    </div>
+  </div>
+
+  <div class="quote">
+    "I had no idea ChatGPT stored 1,400 words about me — my personality, my habits,
+    things I never explicitly told it. And I can't take that to Claude or Gemini."
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 3: SOLUTION ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">3</div>
+  <div class="pill">SOLUTION</div>
+  <h2>Extract. Own. Carry.</h2>
+  <p class="subtitle">
+    Hive lets you extract your AI memory from ChatGPT, Claude, Gemini, and Grok in 30 seconds.
+    We turn it into a structured AI portrait — shareable, portable, yours.
+  </p>
+
+  <div class="flow">
+    <div class="flow-step">Pick your AI</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">Copy one prompt</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">Get your portrait</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">Share & export</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Mirror</h3>
+      <p>AI-generated portrait: strengths, blind spots, thinking style, expertise graph.
+         Things about you only a machine would notice.</p>
+    </div>
+    <div class="card">
+      <h3>Portfolio</h3>
+      <p>Beautiful public page generated from your AI data. Animated themes,
+         project showcase, skill graphs. Shareable as your AI resume.</p>
+    </div>
+    <div class="card">
+      <h3>Key</h3>
+      <p>Export to any AI with one paste. New AI knows you from message one.
+         Portable identity across platforms.</p>
+    </div>
+    <div class="card">
+      <h3>Hive</h3>
+      <p>Community visualization. Every user is a glowing cell.
+         Social proof + FOMO drives organic virality.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 4: WHY NOW ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">4</div>
+  <div class="pill gray-pill">WHY NOW</div>
+  <h2>Three forces <span class="accent">converging</span></h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-text">
+        <h4>1. AI usage exploded — identity didn't follow</h4>
+        <p>900M weekly ChatGPT users. 750M Gemini MAU. 75% of knowledge workers use AI daily.
+           Each tool builds a separate, siloed profile. No portability exists.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-text">
+        <h4>2. Regulation mandates data portability</h4>
+        <p>EU Data Act (Sep 2025) mandates data portability for all services.
+           EU AI Act adds transparency requirements. GDPR right to portability is now enforceable.
+           Hive is the tool that makes compliance useful.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-text">
+        <h4>3. AI memory is primitive — and people know it</h4>
+        <p>ChatGPT memory: 1,200 words max. No cross-platform sync. 88% of users are concerned
+           about AI using their data. The trust gap is the opportunity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 5: MARKET ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">5</div>
+  <div class="pill gray-pill">MARKET</div>
+  <h2>$42B market, <span class="accent">growing 21% CAGR</span></h2>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-number">$133B</div>
+      <div class="stat-label">Digital identity market by 2030</div>
+      <div class="stat-source">MarketsandMarkets, CAGR 21.2%</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">$220B</div>
+      <div class="stat-label">Generative AI market by 2030</div>
+      <div class="stat-source">ABI Research, CAGR 29%</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">$703M</div>
+      <div class="stat-label">Personal data marketplace by 2030</div>
+      <div class="stat-source">Grand View Research, CAGR 23.3%</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 48px;">
+    <h3>Our beachhead: AI-native professionals</h3>
+    <p class="subtitle" style="font-size: 15px;">
+      84% of developers use AI tools (Stack Overflow). 88% of students use GenAI.
+      These are our first users — they understand the value immediately.
+    </p>
+  </div>
+
+  <div style="margin-top: 28px;">
+    <h3 style="color: #888; font-size: 14px; font-weight: 600;">SAM progression</h3>
+    <div class="flow" style="margin-top: 12px;">
+      <div class="flow-step"><strong>Now:</strong> AI power users (50M)</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><strong>Next:</strong> All AI users (400M+)</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><strong>Then:</strong> Everyone with digital identity (1B+)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 6: BUSINESS MODEL ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">6</div>
+  <div class="pill gray-pill">BUSINESS MODEL</div>
+  <h2>Free to extract.<br><span class="accent">Pay to shine.</span></h2>
+
+  <div class="two-col">
+    <div>
+      <h3>Free tier (viral engine)</h3>
+      <ul>
+        <li>AI memory extraction</li>
+        <li>Mirror portrait</li>
+        <li>Basic public profile at /p/username</li>
+        <li>Export to JSON, Claude, GPT</li>
+        <li>Hive cell claim</li>
+      </ul>
+      <p style="margin-top: 16px; font-size: 14px; color: #888;">
+        Every free user is a distribution channel. Their shared profile = our ad.
+      </p>
+    </div>
+    <div>
+      <h3>Premium — Personal Pages <span class="accent">$3/mo</span> or <span class="accent">$19/yr</span></h3>
+      <ul>
+        <li>Animated portfolio page at /me/username</li>
+        <li>5 premium themes (Ember, Ocean, Cosmos, Forest, Mono)</li>
+        <li>Project showcase with metrics</li>
+        <li>Custom links, stats, CTA buttons</li>
+        <li>Page view analytics</li>
+        <li>Resume download integration</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; padding: 24px; background: #fafafa; border-radius: 12px;">
+    <h3 style="font-size: 14px; color: #888; margin-bottom: 12px;">UNIT ECONOMICS TARGET</h3>
+    <div class="stat-grid" style="margin-top: 0;">
+      <div class="stat">
+        <div class="stat-number" style="font-size: 32px;">5%</div>
+        <div class="stat-label">Free-to-paid conversion</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="font-size: 32px;">$19</div>
+        <div class="stat-label">ARPU (annual plan)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="font-size: 32px;">$0</div>
+        <div class="stat-label">CAC (viral loop)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" style="font-size: 32px; color: #16a34a;">&infin;</div>
+        <div class="stat-label">LTV/CAC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 7: TRACTION ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">7</div>
+  <div class="pill">TRACTION</div>
+  <h2>Built in 3 weeks. <span class="accent">Shipping now.</span></h2>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-number" style="color: #16a34a;">Live</div>
+      <div class="stat-label">Full product deployed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">27</div>
+      <div class="stat-label">API routes shipping</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">5</div>
+      <div class="stat-label">AI sources supported</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px;">
+    <h3>What's built</h3>
+    <ul>
+      <li>AI memory extraction from ChatGPT, Claude, Gemini, Grok + file upload</li>
+      <li>AI portrait generation via Claude API with anonymization</li>
+      <li>Supabase Auth (email + Google OAuth) with JWT-protected API</li>
+      <li>Public profiles with dynamic OG social cards</li>
+      <li>Personal Pages with 5 animated themes + page editor</li>
+      <li>Stripe subscriptions ($3/mo, $19/yr) with billing portal</li>
+      <li>Share buttons, resume export (5 formats), referral tracking</li>
+      <li>GDPR: data export, account deletion, privacy policy</li>
+      <li>Docker + Caddy deployment, ready for production</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 8: VIRAL LOOP ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">8</div>
+  <div class="pill gray-pill">GROWTH</div>
+  <h2>The product <span class="accent">shares itself.</span></h2>
+  <p class="subtitle">
+    Every profile is an ad. Every export contains a link. Every shared card triggers curiosity.
+  </p>
+
+  <div class="flow" style="margin-top: 32px; font-size: 14px;">
+    <div class="flow-step">User extracts memory</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">Gets beautiful profile</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">Shares on social media</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">Friend sees OG card</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">Clicks "Create yours"</div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step" style="background: #fff7ed; border-color: #f97316;">Repeat &infin;</div>
+  </div>
+
+  <div class="two-col" style="margin-top: 40px;">
+    <div>
+      <h3>Built-in viral mechanics</h3>
+      <ul>
+        <li>Dynamic OG cards with name + skills on every share</li>
+        <li>"AI has a portrait of YOU too" CTA on every profile</li>
+        <li>Hive visualization — FOMO as cells fill up</li>
+        <li>Live counter: "X memories extracted today"</li>
+        <li>Resume export contains Hive link</li>
+        <li>LinkedIn-optimized share format</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Comparable viral products</h3>
+      <table class="comp-table">
+        <tr>
+          <th>Product</th>
+          <th>Users</th>
+          <th>Mechanic</th>
+        </tr>
+        <tr>
+          <td>Spotify Wrapped</td>
+          <td>600M</td>
+          <td>Identity sharing</td>
+        </tr>
+        <tr>
+          <td>16personalities</td>
+          <td>300M+</td>
+          <td>"This is who I am"</td>
+        </tr>
+        <tr>
+          <td>Linktree</td>
+          <td>70M</td>
+          <td>Portfolio identity</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Hive</strong></td>
+          <td>Day 1</td>
+          <td>All three combined</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 9: COMPETITIVE LANDSCAPE ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">9</div>
+  <div class="pill gray-pill">COMPETITION</div>
+  <h2>No one owns the <span class="accent">AI identity layer</span></h2>
+
+  <table class="comp-table" style="margin-top: 28px;">
+    <tr>
+      <th>Company</th>
+      <th>What they do</th>
+      <th>Missing</th>
+    </tr>
+    <tr>
+      <td><strong>LinkedIn</strong></td>
+      <td>Professional identity (self-reported)</td>
+      <td>Not AI-native. You say who you are.</td>
+    </tr>
+    <tr>
+      <td><strong>Linktree</strong> ($1.3B)</td>
+      <td>Link-in-bio portfolio</td>
+      <td>Static. No AI intelligence. Manual setup.</td>
+    </tr>
+    <tr>
+      <td><strong>ChatGPT Memory</strong></td>
+      <td>1,200 words of context</td>
+      <td>Locked in. Not portable. Not shareable.</td>
+    </tr>
+    <tr>
+      <td><strong>Notion</strong> ($11B)</td>
+      <td>Knowledge workspace</td>
+      <td>Manual. No AI extraction. No identity layer.</td>
+    </tr>
+    <tr>
+      <td><strong>Limitless AI</strong></td>
+      <td>Conversation capture (hardware)</td>
+      <td>Hardware-dependent. Acquired by Meta.</td>
+    </tr>
+    <tr class="highlight">
+      <td><strong>Hive</strong></td>
+      <td><strong>AI-native identity platform</strong></td>
+      <td><strong>First mover. Built for the AI era.</strong></td>
+    </tr>
+  </table>
+
+  <div class="quote" style="margin-top: 40px;">
+    LinkedIn tells the world who you <em>say</em> you are.<br>
+    Hive shows the world who AI <em>knows</em> you are.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 10: DEFENSIBILITY ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">10</div>
+  <div class="pill gray-pill">DEFENSIBILITY</div>
+  <h2>"Why can't OpenAI <span class="accent">just add this?</span>"</h2>
+  <p class="subtitle">They can't. And they won't. Here's why:</p>
+
+  <div class="two-col" style="margin-top: 32px;">
+    <div class="card" style="border-color: #f97316;">
+      <h3>Platform neutrality</h3>
+      <p>OpenAI will never help you export your memory to Claude.
+         Google won't help you carry context to ChatGPT.
+         Each platform is incentivized to <strong>lock you in</strong>.
+         Hive is the neutral layer that works across all of them.</p>
+    </div>
+    <div class="card" style="border-color: #f97316;">
+      <h3>Network effects</h3>
+      <p>Every shared profile recruits new users.
+         The Hive visualization creates community identity.
+         As more people join, the platform becomes the
+         <strong>standard for AI identity</strong> — like LinkedIn became
+         the standard for professional identity.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px;">
+    <h3>Moats that compound</h3>
+    <ul>
+      <li><strong>Data moat:</strong> We accumulate cross-platform identity data that no single AI vendor has</li>
+      <li><strong>Network moat:</strong> Each user adds value to the Hive. More profiles = more sharing = more users</li>
+      <li><strong>Regulatory moat:</strong> EU Data Act makes us the compliance tool. First-mover in this niche</li>
+      <li><strong>Brand moat:</strong> "What's your Hive?" becomes a professional reflex, like "Connect on LinkedIn"</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 11: TEAM ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">11</div>
+  <div class="pill gray-pill">TEAM</div>
+  <h2>Solo founder. <span class="accent">Ships fast.</span></h2>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-name">Founder</div>
+      <div class="team-role">CEO & Full-Stack Engineer</div>
+      <div class="team-bio">
+        Built 4 AI products in 18 months. Deep expertise in generative AI (Stable Diffusion,
+        ComfyUI, ControlNet), full-stack (Next.js, NestJS, Python), and cloud infrastructure (AWS, Docker).
+        Based in Helsinki, Finland. Built Hive from zero to production in 3 weeks — solo.
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-name">Products shipped</div>
+      <div class="team-role">Track record</div>
+      <div class="team-bio">
+        <strong>CardAI</strong> — AI product photography (16 ComfyUI workflows)<br>
+        <strong>CVPass</strong> — ATS resume builder with semantic matching<br>
+        <strong>Secondhand.fi</strong> — C2C marketplace with Stripe Connect<br>
+        <strong>Hive</strong> — AI memory platform (this pitch)
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 11: ASK ==================== -->
+<section class="slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">12</div>
+  <div class="pill">THE ASK</div>
+  <h2>Raising to reach <span class="accent">10K users in 90 days</span></h2>
+
+  <div class="ask-box">
+    <div class="ask-amount">$500K</div>
+    <div style="font-size: 16px; color: #555; margin-top: 8px;">Pre-seed round</div>
+  </div>
+
+  <div class="two-col" style="margin-top: 36px;">
+    <div>
+      <h3>Use of funds</h3>
+      <ul>
+        <li><strong>40%</strong> — Growth (viral campaigns, community, content)</li>
+        <li><strong>30%</strong> — Product (mobile apps, AI integrations, API)</li>
+        <li><strong>20%</strong> — Hiring (1 growth lead, 1 designer)</li>
+        <li><strong>10%</strong> — Infrastructure (hosting, AI API costs)</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Milestones (12 months)</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <h4>Month 3: 10K users</h4>
+            <p>Viral launch on Product Hunt, X, Reddit. 1K paying.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <h4>Month 6: 50K users</h4>
+            <p>Mobile app (iOS + Android). API for developers. $10K MRR.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text">
+            <h4>Month 12: 200K users</h4>
+            <p>B2B API (recruiting, onboarding). $50K MRR. Series A ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SLIDE 12: CLOSING ==================== -->
+<section class="slide footer-slide">
+  <div class="logo">HIVE</div>
+  <div class="slide-number">13</div>
+  <h1>AI knows 1.1 billion people.<br><span class="accent">None of them know back.</span></h1>
+  <p class="subtitle" style="margin: 0 auto 40px;">
+    We're building the identity layer for the AI era.<br>
+    The question isn't whether people will want to own their AI memory.<br>
+    It's who builds the platform first.
+  </p>
+  <div style="font-size: 18px; font-weight: 700; color: #f97316; margin-bottom: 8px;">
+    hive.nextry.app
+  </div>
+  <div class="contact-info">
+    hello@hive.nextry.app<br>
+    Helsinki, Finland
+  </div>
+</section>
+
+</body>
+</html>
