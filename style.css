@@ -1863,31 +1863,8 @@ a.project-card:hover .project-link {
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-    .folder-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
     .folder-card:active {
         transform: scale(0.97);
-    }
-
-    .folder-card:hover .folder-stack .fs-1 {
-        transform: scale(1);
-    }
-
-    .partner-item:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
-    .project-card:hover,
-    .startup-card:hover,
-    .stat:hover,
-    .highlight-card:hover,
-    .skill-category:hover,
-    .contact-card:hover {
-        transform: none;
     }
 
     /* Disable heavy pseudo-element animations on mobile */
