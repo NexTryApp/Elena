@@ -231,9 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (card) openFolder(card.dataset.folder);
     });
 
-    document.getElementById('folder-viewer-back').addEventListener('click', closeFolder);
-    document.getElementById('folder-viewer-next').addEventListener('click', fvNext);
-    document.getElementById('folder-viewer-prev').addEventListener('click', fvPrev);
+    document.getElementById('folder-viewer-back')?.addEventListener('click', closeFolder);
+    document.getElementById('folder-viewer-next')?.addEventListener('click', fvNext);
+    document.getElementById('folder-viewer-prev')?.addEventListener('click', fvPrev);
 
     fvThumbs.addEventListener('click', e => {
         if (e.target.tagName === 'IMG') {

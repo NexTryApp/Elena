@@ -1209,7 +1209,6 @@ img { max-width: 100%; display: block; }
 /* Hidden gallery data */
 .gallery-grid { display: none; }
 
-.gallery-item.hidden { display: none; }
 
 /* ========== Lightbox ========== */
 .lightbox {
@@ -1379,17 +1378,6 @@ img { max-width: 100%; display: block; }
     box-shadow: 0 -1px 15px rgba(var(--accent-rgb), 0.05);
 }
 
-/* ========== Scroll Reveal Animation ========== */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* ========== Animated Glow Border ========== */
 .glow-border {
@@ -1448,11 +1436,6 @@ img { max-width: 100%; display: block; }
     border: 1px solid rgba(96, 165, 250, 0.3);
 }
 
-.badge-civitai {
-    background: rgba(var(--accent-rgb), 0.15);
-    color: var(--accent-light);
-    border: 1px solid rgba(var(--accent-rgb), 0.3);
-}
 
 /* Project card as link */
 a.project-card {
