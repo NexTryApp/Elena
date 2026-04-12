@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elena Matyushenko - Senior Generative AI Engineer</title>
-    <meta name="description" content="Senior Generative AI Engineer — 121 published AI models, 111K+ downloads, 16+ tools built.">
+    <meta name="description" content="Senior Generative AI Engineer — 121 published AI models, 111K+ downloads, 3,100+ users, 5M+ training images. Stable Diffusion, ComfyUI, Next.js, NestJS, PyTorch.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://elena.nextry.app/">
     <meta property="og:title" content="Elena Matyushenko — Senior Generative AI Engineer">
-    <meta property="og:description" content="121 AI models | 111K+ downloads | 16+ tools built | 2,900+ users. Building AI-powered products from training diffusion models to shipping full-stack platforms.">
+    <meta property="og:description" content="121 AI models | 111K+ downloads | 16+ tools built | 3,100+ users. Building AI-powered products from training diffusion models to shipping full-stack platforms.">
     <meta property="og:image" content="https://elena.nextry.app/images/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Elena Matyushenko — Senior Generative AI Engineer">
+    <meta name="twitter:description" content="121 AI models | 111K+ downloads | 16+ tools built | 3,100+ users.">
     <meta name="twitter:image" content="https://elena.nextry.app/images/og-image.png">
+    <link rel="canonical" href="https://elena.nextry.app/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫧</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +29,7 @@
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-logo">EM</div>
-        <div class="theme-switcher">
+        <div class="theme-switcher" id="theme-switcher">
             <a href="../index.html" class="theme-dot" title="Fire">
                 <span class="dot-inner" style="background: linear-gradient(135deg, #e8722a, #f5a623);"></span>
             </a>
@@ -50,6 +53,7 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#startups">Startups</a>
             <a href="#gallery">Gallery</a>
             <a href="#contact">Contact</a>
         </div>
@@ -74,8 +78,12 @@
                     <span class="stat-label">Downloads</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number" data-target="2900">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-number" data-target="3100">0</span><span class="stat-suffix">+</span>
                     <span class="stat-label">Platform Users</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="5">0</span><span class="stat-suffix">M+</span>
+                    <span class="stat-label">Training Images</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number" data-target="16">0</span><span class="stat-suffix">+</span>
@@ -83,9 +91,11 @@
                 </div>
             </div>
             <div class="hero-cta">
-                <a href="../Elena_Matyushenko_Resume.pdf" class="btn btn-primary" target="_blank">Download Resume</a>
+                <a href="../Elena_Matyushenko_Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Resume</a>
                 <a href="#gallery" class="btn btn-outline">View Portfolio</a>
             </div>
+
+
         </div>
     </section>
 
@@ -103,7 +113,7 @@
                     <div class="highlight-card">
                         <div class="highlight-icon">&#9672;</div>
                         <h3>Model Training</h3>
-                        <p>LoRA, DreamBooth, Textual Inversion across SD 1.5/2.1/3, SDXL, FLUX, HiDream</p>
+                        <p>LoRA, DreamBooth, Textual Inversion across SD 1.5/2.1/3, SDXL, FLUX, HiDream, Qwen, Qwen-Edit</p>
                     </div>
                     <div class="highlight-card">
                         <div class="highlight-icon">&#9671;</div>
@@ -118,7 +128,7 @@
                     <div class="highlight-card">
                         <div class="highlight-icon">&#9673;</div>
                         <h3>Team Lead</h3>
-                        <p>Distributed team management, code review, sprint planning, CI/CD</p>
+                        <p>Managing a distributed team of 8, code review, sprint planning, CI/CD</p>
                     </div>
                 </div>
             </div>
@@ -126,7 +136,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section section-alt" id="skills">
+    <section class="section section-dark" id="skills">
         <div class="container">
             <h2 class="section-title">Technical Stack</h2>
             <div class="skills-grid">
@@ -143,19 +153,39 @@
                         <span class="tag">ComfyUI</span>
                         <span class="tag">ControlNet</span>
                         <span class="tag">IP-Adapter</span>
+                        <span class="tag">StyleAdapter</span>
+                        <span class="tag">SDXL Turbo</span>
+                        <span class="tag">Midjourney</span>
+                        <span class="tag">Custom Node Development</span>
+                        <span class="tag">SD Pipeline Configuration</span>
+                        <span class="tag">Automatic1111</span>
+                        <span class="tag">NanoBanana</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-cat-title">ML / Deep Learning</h3>
                     <div class="skill-tags">
                         <span class="tag">PyTorch</span>
+                        <span class="tag">TensorFlow</span>
                         <span class="tag">Diffusers</span>
                         <span class="tag">SAM</span>
                         <span class="tag">YOLO</span>
                         <span class="tag">NumPy</span>
                         <span class="tag">pandas</span>
                         <span class="tag">Jupyter</span>
-                        <span class="tag">scikit-learn</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Embedding Models</span>
+                        <span class="tag">Sentiment Analysis</span>
+                        <span class="tag">xFormers Optimization</span>
+                        <span class="tag">Detection Models</span>
+                        <span class="tag">Segmentation Models</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Torch Optimization</span>
+                        <span class="tag">Model Quantization</span>
+                        <span class="tag">CUDA Optimization</span>
+                        <span class="tag">Qwen</span>
+                        <span class="tag">Qwen-Edit</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -164,9 +194,8 @@
                         <span class="tag">Next.js 15</span>
                         <span class="tag">React 19</span>
                         <span class="tag">TypeScript</span>
-                        <span class="tag">Tailwind CSS</span>
-                        <span class="tag">GSAP</span>
-                        <span class="tag">Radix UI</span>
+                        <span class="tag">Telegram Mini Apps</span>
+                        <span class="tag">Telegram Web Apps</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -179,29 +208,77 @@
                         <span class="tag">Redis</span>
                         <span class="tag">Docker</span>
                         <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
                         <span class="tag">Stripe</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Telegram Bot API</span>
+                        <span class="tag">SQL Database</span>
+                        <span class="tag">App Service</span>
+
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-cat-title">Video & Animation</h3>
                     <div class="skill-tags">
                         <span class="tag">Luma</span>
-                        <span class="tag">Kling</span>
+                        <span class="tag">Kling.AI</span>
                         <span class="tag">AnimateDiff</span>
                         <span class="tag">Hunyuan Video</span>
                         <span class="tag">WAN</span>
-                        <span class="tag">Runway</span>
+                        <span class="tag">Runway Gen-3</span>
+                        <span class="tag">Veo</span>
+                        <span class="tag">Avatar Generation</span>
+                        <span class="tag">Pose-Driven Video</span>
+                        <span class="tag">Computer Vision for Video</span>
+                        <span class="tag">Storyboarding</span>
+                        <span class="tag">Motion Design</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3 class="skill-cat-title">LLM Integration</h3>
                     <div class="skill-tags">
-                        <span class="tag">OpenAI</span>
+                        <span class="tag">OpenAI API</span>
                         <span class="tag">Anthropic</span>
-                        <span class="tag">Groq</span>
+                        <span class="tag">Claude Code</span>
+
                         <span class="tag">Ollama</span>
+                        <span class="tag">Grok</span>
                         <span class="tag">Function Calling</span>
                         <span class="tag">Prompt Engineering</span>
+                        <span class="tag">Structured Prompts</span>
+                        <span class="tag">Agent Workflows</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Vector Databases</span>
+                        <span class="tag">Vector Search</span>
+                        <span class="tag">AI Evaluation Systems</span>
+                        <span class="tag">LLM Model Optimization</span>
+                        <span class="tag">LLM API Integration</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">DevOps & GPU Optimization</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Multi-GPU Optimization</span>
+                        <span class="tag">GPU Infrastructure</span>
+                        <span class="tag">ML-Environment Management</span>
+                        <span class="tag">Production ML Integration</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Code Review</span>
+                        <span class="tag">Web Automation & API Integration</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Data Privacy Practices</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-cat-title">Design & Creative</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Photoshop</span>
+                        <span class="tag">Lighting & Color Theory</span>
+                        <span class="tag">Character Anatomy</span>
+                        <span class="tag">Composition & Lighting</span>
+                        <span class="tag">Storyboarding</span>
+                        <span class="tag">Fashion Branding Portfolio</span>
                     </div>
                 </div>
             </div>
@@ -213,20 +290,21 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <a href="https://nextry.app" target="_blank" class="project-card project-featured">
+                <a href="https://nextry.app" target="_blank" rel="noopener noreferrer" class="project-card project-featured glow-border">
                     <div class="project-badge badge-live">Live Platform</div>
+                    <div class="project-status-dot"></div>
                     <h3 class="project-name">NexTry</h3>
                     <p class="project-tagline">AI Virtual Try-On Platform</p>
-                    <p class="project-desc">Next.js 15 + React 19 platform with 16+ AI generator tools serving 2,900+ users. Virtual try-on, mannequin generation, virtual photoshoots, colorization, pose transfer. Optimized ComfyUI workflows achieving 2-5x speed improvements.</p>
+                    <p class="project-desc">Next.js 15 + React 19 platform with 16+ AI generator tools serving 3,100+ users. Virtual try-on, mannequin generation, virtual photoshoots, colorization, pose transfer. Optimized ComfyUI workflows achieving 2-5x speed improvements. Supported by NVIDIA, Google, Microsoft Azure, Scaleway, and AWS.</p>
                     <div class="project-metrics">
-                        <span>2,900+ users</span>
+                        <span>3,100+ users</span>
                         <span>16+ AI tools</span>
-                        <span>2-5x speed gains</span>
+                        <span>NVIDIA · Google · Azure · AWS</span>
                     </div>
                     <span class="project-link">Visit NexTry &rarr;</span>
                 </a>
 
-                <a href="https://botbazar.ai" target="_blank" class="project-card">
+                <a href="https://botbazar.ai" target="_blank" rel="noopener noreferrer" class="project-card glow-border">
                     <div class="project-badge">Beta</div>
                     <h3 class="project-name">BotBazar</h3>
                     <p class="project-tagline">AI Bot Marketplace</p>
@@ -239,7 +317,7 @@
                     <span class="project-link">Visit BotBazar &rarr;</span>
                 </a>
 
-                <a href="https://github.com/NexTryApp/TaskPilot" target="_blank" class="project-card">
+                <a href="https://github.com/NexTryApp/TaskPilot" target="_blank" rel="noopener noreferrer" class="project-card glow-border">
                     <div class="project-badge badge-oss">Open Source</div>
                     <h3 class="project-name">TaskPilot</h3>
                     <p class="project-tagline">Security-First AI Agent Framework</p>
@@ -252,8 +330,47 @@
                     <span class="project-link">GitHub &rarr;</span>
                 </a>
 
-                <a href="https://civitai.com/user/Sa_May" target="_blank" class="project-card">
-                    <div class="project-badge badge-civitai">Civitai</div>
+                <a href="https://cvpass.nextry.app" target="_blank" rel="noopener noreferrer" class="project-card glow-border">
+                    <div class="project-badge badge-live">Live Tool</div>
+                    <h3 class="project-name">CVPass</h3>
+                    <p class="project-tagline">AI Resume Screening Platform</p>
+                    <p class="project-desc">AI-powered tool that checks resumes against any job posting in 10 seconds. Match scoring, gap analysis, skill extraction, and tailored resume generation. Built with FastAPI + vanilla JS, deployed on nextry.app.</p>
+                    <div class="project-metrics">
+                        <span>10-sec analysis</span>
+                        <span>Match scoring</span>
+                        <span>Resume tailoring</span>
+                    </div>
+                    <span class="project-link">Try CVPass &rarr;</span>
+                </a>
+
+                <a href="https://hive.nextry.app" target="_blank" rel="noopener noreferrer" class="project-card glow-border">
+                    <div class="project-badge badge-live">Live Platform</div>
+                    <h3 class="project-name">Hive</h3>
+                    <p class="project-tagline">AI Memory Portrait Platform</p>
+                    <p class="project-desc">Extracts how AI sees you by analyzing conversations across ChatGPT, Claude, Gemini, and Grok. Generates shareable personality portraits with thinking style and skills analysis. Portable AI identity for LinkedIn and resumes. No signup required.</p>
+                    <div class="project-metrics">
+                        <span class="metric">47+ users</span>
+                        <span class="metric">4 AI platforms</span>
+                        <span class="metric">30s generation</span>
+                    </div>
+                    <span class="project-link">Visit Hive &rarr;</span>
+                </a>
+
+                <a href="https://madinarestauracja.pl" target="_blank" rel="noopener noreferrer" class="project-card glow-border">
+                    <div class="project-badge badge-live">Live Website</div>
+                    <h3 class="project-name">Madina Restauracja</h3>
+                    <p class="project-tagline">Restaurant Website</p>
+                    <p class="project-desc">Modern restaurant website for Madina in Poland. Responsive design with menu presentation, online reservations, gallery, and contact information. Clean UI focused on customer experience.</p>
+                    <div class="project-metrics">
+                        <span>Responsive design</span>
+                        <span>Online reservations</span>
+                        <span>Poland</span>
+                    </div>
+                    <span class="project-link">Visit Website &rarr;</span>
+                </a>
+
+                <a href="https://civitai.com/user/Sa_May" target="_blank" rel="noopener noreferrer" class="project-card glow-border">
+                    <div class="project-badge badge-oss">Open Source</div>
                     <h3 class="project-name">Sa_May Models</h3>
                     <p class="project-tagline">121 Published AI Models</p>
                     <p class="project-desc">LoRA/LyCORIS models for fashion, product visuals, portraits, and style systems across SD 1.5, SDXL, FLUX. 111K+ downloads, 13K+ likes, 1,300+ followers.</p>
@@ -268,129 +385,697 @@
         </div>
     </section>
 
+    <!-- Startups Section -->
+    <section class="section" id="startups">
+        <div class="container">
+            <h2 class="section-title">My Startups</h2>
+            <p class="startups-subtitle">Products I've built from zero — some live, some in active development. This section is being updated.</p>
+
+            <div class="startups-grid">
+                <div class="startup-card startup-live">
+                    <div class="startup-status"><span class="status-dot status-live"></span> Live</div>
+                    <h3 class="startup-name">NexTry</h3>
+                    <p class="startup-tagline">AI Virtual Try-On Platform</p>
+                    <p class="startup-desc">16+ AI generator tools for fashion: virtual try-on, mannequin generation, style transfer, colorization. Optimized ComfyUI pipelines with 2-5x speed gains.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">3,100+</span>
+                            <span class="metric-label">Users</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">16+</span>
+                            <span class="metric-label">AI Tools</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">2-5x</span>
+                            <span class="metric-label">Speed Gains</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="https://nextry.app" target="_blank" rel="noopener noreferrer" class="startup-link-btn">Visit Platform &rarr;</a>
+                        <span class="startup-link-pitch" style="opacity:0.4;cursor:default">Pitch Deck (soon)</span>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-live">
+                    <div class="startup-status"><span class="status-dot status-beta"></span> Beta</div>
+                    <h3 class="startup-name">BotBazar</h3>
+                    <p class="startup-tagline">AI Bot Marketplace</p>
+                    <p class="startup-desc">Full-stack monorepo marketplace for AI bots. Multi-role auth, Stripe escrow payments, AI moderation pipeline, bot arena with role-based access.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">Stripe</span>
+                            <span class="metric-label">Escrow</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">LLM</span>
+                            <span class="metric-label">Moderation</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">Multi</span>
+                            <span class="metric-label">Role Auth</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="https://botbazar.ai" target="_blank" rel="noopener noreferrer" class="startup-link-btn">Visit Platform &rarr;</a>
+                        <span class="startup-link-pitch" style="opacity:0.4;cursor:default">Pitch Deck (soon)</span>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-live">
+                    <div class="startup-status"><span class="status-dot status-live"></span> Live</div>
+                    <h3 class="startup-name">CVPass</h3>
+                    <p class="startup-tagline">AI Resume Screening</p>
+                    <p class="startup-desc">AI-powered tool: checks resumes against any job posting in 10 seconds. Match scoring, gap analysis, skill extraction, and tailored resume generation.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">10s</span>
+                            <span class="metric-label">Analysis</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">AI</span>
+                            <span class="metric-label">Match Score</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">PDF</span>
+                            <span class="metric-label">Export</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="https://cvpass.nextry.app" target="_blank" rel="noopener noreferrer" class="startup-link-btn">Try CVPass &rarr;</a>
+                        <a href="../pitches/cvpass.html" target="_blank" rel="noopener noreferrer" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-dev">
+                    <div class="startup-status"><span class="status-dot status-wip"></span> In Development</div>
+                    <h3 class="startup-name">Zvonok</h3>
+                    <p class="startup-tagline">Free VoIP Calling App</p>
+                    <p class="startup-desc">Free voice calls over internet — Android app + PWA + NestJS backend with WebRTC. Zero cost for users, ad-supported model.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">WebRTC</span>
+                            <span class="metric-label">Protocol</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">PWA</span>
+                            <span class="metric-label">+ Android</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">Free</span>
+                            <span class="metric-label">For Users</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="../pitches/zvonok.html" target="_blank" rel="noopener noreferrer" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-dev">
+                    <div class="startup-status"><span class="status-dot status-wip"></span> In Development</div>
+                    <h3 class="startup-name">SecondHand</h3>
+                    <p class="startup-tagline">C2C Clothing Marketplace</p>
+                    <p class="startup-desc">Peer-to-peer second-hand clothing marketplace for the Finnish market. NestJS + Next.js + Stripe Connect, AI-powered listing assistance.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">Stripe</span>
+                            <span class="metric-label">Connect</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">AI</span>
+                            <span class="metric-label">Listings</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">Finland</span>
+                            <span class="metric-label">Market</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="../pitches/secondhand.html" target="_blank" rel="noopener noreferrer" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
+
+                <div class="startup-card startup-live">
+                    <div class="startup-status"><span class="status-dot status-live"></span> Live</div>
+                    <h3 class="startup-name">Hive</h3>
+                    <p class="startup-tagline">AI Memory Portrait Platform</p>
+                    <p class="startup-desc">Extracts and visualizes how AI sees you by analyzing conversation patterns across ChatGPT, Claude, Gemini, and Grok. Generates shareable personality portraits with thinking style, strengths, and skills analysis. Portable AI identity for LinkedIn and resumes.</p>
+                    <div class="startup-metrics">
+                        <div class="startup-metric">
+                            <span class="metric-value">47+</span>
+                            <span class="metric-label">Users</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">4</span>
+                            <span class="metric-label">AI Platforms</span>
+                        </div>
+                        <div class="startup-metric">
+                            <span class="metric-value">30s</span>
+                            <span class="metric-label">Generation</span>
+                        </div>
+                    </div>
+                    <div class="startup-links">
+                        <a href="https://hive.nextry.app" target="_blank" rel="noopener noreferrer" class="startup-link-btn">Visit Hive &rarr;</a>
+                        <a href="../pitches/hive.html" target="_blank" rel="noopener noreferrer" class="startup-link-pitch">Pitch Deck</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trusted & Supported By -->
+            <div class="partners-strip">
+                <p class="partners-label">Trusted & Supported By</p>
+                <div class="partners-logos">
+                    <div class="partner-item">
+                        <img src="../images/partners/nvidia-logo.png" alt="NVIDIA" height="22" loading="lazy">
+                        <span>NVIDIA</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/aws-logo.png" alt="AWS" height="22" loading="lazy">
+                        <span>AWS</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/azure-logo.png" alt="Microsoft Azure" height="22" loading="lazy">
+                        <span>Azure</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/google-logo.png" alt="Google" height="22" loading="lazy">
+                        <span>Google</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/scaleway-logo.svg" alt="Scaleway" height="22" loading="lazy">
+                        <span>Scaleway</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/datacrunch-logo.png" alt="DataCrunch" height="22" loading="lazy">
+                        <span>DataCrunch</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/lambda-logo.png" alt="Lambda" height="22" loading="lazy">
+                        <span>Lambda</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/aalto-logo.png" alt="Aalto University" height="22" loading="lazy">
+                        <span>Aalto University</span>
+                    </div>
+                    <div class="partner-item">
+                        <img src="../images/partners/helsinki-logo.png" alt="University of Helsinki" height="22" loading="lazy">
+                        <span>University of Helsinki</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Section -->
-    <section class="section section-alt" id="gallery">
+    <section class="section section-dark" id="gallery">
         <div class="container">
             <h2 class="section-title">AI Generation Gallery</h2>
             <p class="gallery-subtitle">Production outputs from NexTry platform — virtual try-on, print transfer, style LoRA, and ComfyUI pipelines</p>
 
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="tryon">Fashion Swap</button>
-                <button class="filter-btn" data-filter="print">Wear Print</button>
-                <button class="filter-btn" data-filter="style">Style Transfer</button>
-                <button class="filter-btn" data-filter="portrait">Portraits</button>
-                <button class="filter-btn" data-filter="pipeline">Pipelines</button>
+            <!-- Folder Cards -->
+            <div class="gallery-folders" id="gallery-folders"></div>
+
+            <!-- Folder Viewer (carousel) -->
+            <div class="folder-viewer" id="folder-viewer">
+                <div class="folder-viewer-header">
+                    <button class="folder-viewer-back" id="folder-viewer-back">&larr; All Folders</button>
+                    <h3 class="folder-viewer-title" id="folder-viewer-title"></h3>
+                    <span class="folder-viewer-counter" id="folder-viewer-counter"></span>
+                </div>
+                <div class="folder-viewer-stage">
+                    <button class="folder-viewer-arrow folder-viewer-prev" id="folder-viewer-prev">&lsaquo;</button>
+                    <div class="folder-viewer-img-wrap">
+                        <img src="" alt="" id="folder-viewer-img">
+                        <p class="folder-viewer-desc" id="folder-viewer-desc"></p>
+                    </div>
+                    <button class="folder-viewer-arrow folder-viewer-next" id="folder-viewer-next">&rsaquo;</button>
+                </div>
+                <div class="folder-viewer-thumbs" id="folder-viewer-thumbs"></div>
             </div>
 
-            <div class="gallery-grid" id="gallery-grid">
+            <!-- Hidden data source -->
+            <div class="gallery-grid" id="gallery-grid" style="display:none">
+                <!-- Fashion Swap / Virtual Try-On -->
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-09-27_11-10-42.jpg" alt="Fashion Swap" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Dress try-on — original → new outfit</p></div>
+                    <img src="../images/site/photo_2025-09-27_11-10-42.jpg" alt="Fashion Swap - green dress" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Dress try-on — original → new outfit</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-09-27_14-07-49.jpg" alt="Fashion Swap" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Virtual try-on — seated model</p></div>
+                    <img src="../images/site/photo_2025-09-27_14-07-49.jpg" alt="Fashion Swap - yellow dress" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Virtual try-on — seated model</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-09-27_14-05-12 (2).jpg" alt="Fashion Swap" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Flat clothing → on model</p></div>
+                    <img src="../images/site/photo_2025-09-27_14-05-12 (2).jpg" alt="Fashion Swap - black dress" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Flat clothing → on model</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-07-06_15-14-29.jpg" alt="Fashion Swap" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Brand sweatshirt — scene variation</p></div>
+                    <img src="../images/site/photo_2025-07-06_15-14-29.jpg" alt="Fashion Swap - Moncler indoor" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Brand sweatshirt — scene variation</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-08-21_23-01-25.jpg" alt="Fashion Swap" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Flat top → on editorial model</p></div>
+                    <img src="../images/site/photo_2025-08-21_23-01-25.jpg" alt="Fashion Swap - Diesel top" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Flat top → on editorial model</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-08-20_16-31-49.jpg" alt="Accessory Try-On" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Accessory Try-On</span><p>Product photo → on model face</p></div>
+                    <img src="../images/site/photo_2025-08-20_16-31-49.jpg" alt="Fashion Swap - sunglasses" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Accessory Try-On</span>
+                        <p>Product photo → on model face</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-07-08_15-48-02.jpg" alt="Fashion Swap" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Fashion Swap</span><p>Botanical print dress try-on</p></div>
+                    <img src="../images/site/photo_2025-07-08_15-48-02.jpg" alt="Fashion Swap - fern dress" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Botanical print dress try-on</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="tryon">
-                    <img src="../images/site/photo_2025-08-08_23-22-25 (2).jpg" alt="Extraction" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Extraction</span><p>Runway photo → flat garment</p></div>
+                    <img src="../images/site/photo_2025-08-08_23-22-25 (2).jpg" alt="Fashion extraction" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Extraction</span>
+                        <p>Runway photo → flat garment</p>
+                    </div>
+                </div>
+
+                <!-- Wear Print -->
+                <div class="gallery-item" data-category="print">
+                    <img src="../images/site/photo_2025-06-30_17-16-14.jpg" alt="Wear Print - art hoodie" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Wear Print</span>
+                        <p>Abstract art → hoodie + on model</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="print">
-                    <img src="../images/site/photo_2025-06-30_17-16-14.jpg" alt="Wear Print" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Abstract art → hoodie + on model</p></div>
+                    <img src="../images/site/photo_2025-03-20_17-49-06.jpg" alt="Wear Print - bird hoodie" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Wear Print</span>
+                        <p>Illustration → printed on hoodie</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="print">
-                    <img src="../images/site/photo_2025-03-20_17-49-06.jpg" alt="Wear Print" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Illustration → printed on hoodie</p></div>
+                    <img src="../images/site/photo_2025-03-20_16-59-14.jpg" alt="Wear Print - phone case" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Wear Print</span>
+                        <p>Floral pattern → phone case</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="print">
-                    <img src="../images/site/photo_2025-03-20_16-59-14.jpg" alt="Wear Print" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Floral pattern → phone case</p></div>
+                    <img src="../images/site/photo_2025-04-10_20-22-01.jpg" alt="Wear Print - monstera shirt" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Wear Print</span>
+                        <p>Monstera pattern → fashion shirt</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="print">
-                    <img src="../images/site/photo_2025-04-10_20-22-01.jpg" alt="Wear Print" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Monstera pattern → fashion shirt</p></div>
+                    <img src="../images/site/photo_2025-03-20_18-52-29.jpg" alt="Wear Print - character hoodie" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Wear Print</span>
+                        <p>Character art → printed hoodie</p>
+                    </div>
                 </div>
-                <div class="gallery-item" data-category="print">
-                    <img src="../images/site/photo_2025-03-20_18-52-29.jpg" alt="Wear Print" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Wear Print</span><p>Character art → printed hoodie</p></div>
+
+                <!-- Style Transfer -->
+                <div class="gallery-item" data-category="style">
+                    <img src="../images/site/photo_2025-07-25_11-54-36.jpg" alt="Style transfer - mushroom" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Style Transfer</span>
+                        <p>Photo → impressionist painting</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="style">
-                    <img src="../images/site/photo_2025-07-25_11-54-36.jpg" alt="Style Transfer" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Style Transfer</span><p>Photo → impressionist painting</p></div>
+                    <img src="../images/site/photo_2025-07-25_11-54-37.jpg" alt="Style transfer - berries" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Style Transfer</span>
+                        <p>Nature photo → painterly style</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="style">
-                    <img src="../images/site/photo_2025-07-25_11-54-37.jpg" alt="Style Transfer" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Style Transfer</span><p>Nature photo → painterly style</p></div>
+                    <img src="../images/site/photo_2025-07-26_09-27-12.jpg" alt="Style transfer - chili glass" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Style Transfer</span>
+                        <p>Photo → textured glass effect</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="style">
-                    <img src="../images/site/photo_2025-07-26_09-27-12.jpg" alt="Style Transfer" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Style Transfer</span><p>Photo → textured glass effect</p></div>
+                    <img src="../images/site/photo_2025-07-20_22-05-42.jpg" alt="Pattern design - jellyfish" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Pattern Design</span>
+                        <p>Watercolor → seamless pattern</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="style">
-                    <img src="../images/site/photo_2025-07-20_22-05-42.jpg" alt="Pattern Design" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Pattern Design</span><p>Watercolor → seamless pattern</p></div>
+                    <img src="../images/site/photo_2025-08-17_15-30-26 (4).jpg" alt="Outpainting - abstract cat" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Outpainting</span>
+                        <p>Art expansion — original → extended</p>
+                    </div>
                 </div>
-                <div class="gallery-item" data-category="style">
-                    <img src="../images/site/photo_2025-08-17_15-30-26 (4).jpg" alt="Outpainting" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Outpainting</span><p>Art expansion — original → extended</p></div>
+
+                <!-- Portraits / Character LoRA -->
+                <div class="gallery-item" data-category="portrait">
+                    <img src="../images/site/photo_2025-07-24_16-05-56.jpg" alt="Character LoRA - redhead model" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Character LoRA</span>
+                        <p>Consistent identity — 4 pose grid</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="portrait">
-                    <img src="../images/site/photo_2025-07-24_16-05-56.jpg" alt="Character LoRA" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Character LoRA</span><p>Consistent identity — 4 pose grid</p></div>
+                    <img src="../images/site/photo_2025-07-24_19-06-43.jpg" alt="Character LoRA - porcelain" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Character LoRA</span>
+                        <p>Porcelain aesthetic — 5 pose grid</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="portrait">
-                    <img src="../images/site/photo_2025-07-24_19-06-43.jpg" alt="Character LoRA" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Character LoRA</span><p>Porcelain aesthetic — 5 pose grid</p></div>
+                    <img src="../images/site/photo_2025-07-24_14-59-48.jpg" alt="Character LoRA - space helmet" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Character LoRA</span>
+                        <p>Sci-fi character — multi-angle</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="portrait">
-                    <img src="../images/site/photo_2025-07-24_14-59-48.jpg" alt="Character LoRA" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Character LoRA</span><p>Sci-fi character — multi-angle</p></div>
+                    <img src="../images/site/photo_2024-11-18_19-36-19.jpg" alt="Editorial portrait" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Style LoRA</span>
+                        <p>Vogue-style editorial portrait</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="portrait">
-                    <img src="../images/site/photo_2024-11-18_19-36-19.jpg" alt="Style LoRA" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Style LoRA</span><p>Vogue-style editorial portrait</p></div>
+                    <img src="../images/site/photo_2025-02-16_12-21-05 (3).jpg" alt="Alice in Wonderland" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Creative LoRA</span>
+                        <p>Identity-preserving themed scene</p>
+                    </div>
                 </div>
-                <div class="gallery-item" data-category="portrait">
-                    <img src="../images/site/photo_2025-02-16_12-21-05 (3).jpg" alt="Creative LoRA" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Creative LoRA</span><p>Identity-preserving themed scene</p></div>
+
+                <!-- Pipelines -->
+                <div class="gallery-item" data-category="pipeline">
+                    <img src="../images/site/photo_2025-08-18_16-14-21.jpg" alt="Pipeline - pose + face + dress" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Pipeline</span>
+                        <p>Pose + face + dress → final result</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="pipeline">
-                    <img src="../images/site/photo_2025-08-18_16-14-21.jpg" alt="Pipeline" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Pipeline</span><p>Pose + face + dress → final result</p></div>
+                    <img src="../images/site/photo_2025-08-22_22-29-27.jpg" alt="Pipeline - depth + face + outfit" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Pipeline</span>
+                        <p>Depth map + face + outfit → model</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="pipeline">
-                    <img src="../images/site/photo_2025-08-22_22-29-27.jpg" alt="Pipeline" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Pipeline</span><p>Depth map + face + outfit → model</p></div>
+                    <img src="../images/site/photo_2025-08-23_11-11-21.jpg" alt="Pipeline - body-aware try-on" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Pipeline</span>
+                        <p>Body-aware garment fitting</p>
+                    </div>
                 </div>
                 <div class="gallery-item" data-category="pipeline">
-                    <img src="../images/site/photo_2025-08-23_11-11-21.jpg" alt="Pipeline" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Pipeline</span><p>Body-aware garment fitting</p></div>
+                    <img src="../images/site/photo_2025-03-19_22-26-54 (2).jpg" alt="Room Set - floor swap" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Room Set</span>
+                        <p>Background / surface replacement</p>
+                    </div>
                 </div>
-                <div class="gallery-item" data-category="pipeline">
-                    <img src="../images/site/photo_2025-03-19_22-26-54 (2).jpg" alt="Room Set" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-tag">Room Set</span><p>Background / surface replacement</p></div>
+
+                <!-- Virtual Try-On (new) -->
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-1.jpg" alt="Virtual Try-On - embroidered jacket + jeans" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Flat garments → on model outfit</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-2.jpg" alt="Virtual Try-On - casual style" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Product photo → styled on model</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-3.jpg" alt="Virtual Try-On - dress swap" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Dress try-on — full body swap</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-4.jpg" alt="Virtual Try-On - outfit combination" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Multi-garment outfit generation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-5.jpg" alt="Virtual Try-On - streetwear" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Streetwear virtual fitting</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-6.jpg" alt="Virtual Try-On - formal look" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Formal outfit try-on</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-7.jpg" alt="Virtual Try-On - top swap" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Top garment swap</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-8.jpg" alt="Virtual Try-On - layered outfit" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Layered outfit generation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-9.jpg" alt="Virtual Try-On - summer look" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Summer outfit try-on</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-10.jpg" alt="Virtual Try-On - casual combo" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Casual outfit combination</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-11.jpg" alt="Virtual Try-On - evening look" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Evening outfit try-on</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-12.jpg" alt="Virtual Try-On - editorial" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Editorial style generation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="tryon">
+                    <img src="../images/site/exa-tryon-13.jpg" alt="Virtual Try-On - winter look" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Fashion Swap</span>
+                        <p>Winter outfit try-on</p>
+                    </div>
+                </div>
+
+                <!-- Recolor -->
+                <div class="gallery-item" data-category="recolor">
+                    <img src="../images/site/exa-recolor-1.jpg" alt="Recolor - B&W to color" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Recolor</span>
+                        <p>Black & white → full color restoration</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="recolor">
+                    <img src="../images/site/exa-recolor-2.jpg" alt="Recolor - vintage photo" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Recolor</span>
+                        <p>Vintage photo colorization</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="recolor">
+                    <img src="../images/site/exa-recolor-3.jpg" alt="Recolor - portrait restoration" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Recolor</span>
+                        <p>Portrait color restoration</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="recolor">
+                    <img src="../images/site/exa-recolor-4.jpg" alt="Recolor - historical photo" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Recolor</span>
+                        <p>Historical photo colorization</p>
+                    </div>
+                </div>
+
+                <!-- Texture Transfer -->
+                <div class="gallery-item" data-category="texture">
+                    <img src="../images/site/exa-texture-1.jpg" alt="Texture Transfer - fur chair" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Texture Transfer</span>
+                        <p>Material texture → furniture application</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="texture">
+                    <img src="../images/site/exa-texture-2.jpg" alt="Texture Transfer - fabric swap" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Texture Transfer</span>
+                        <p>Fabric texture replacement</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="texture">
+                    <img src="../images/site/exa-texture-3.jpg" alt="Texture Transfer - material change" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Texture Transfer</span>
+                        <p>Surface material transformation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="texture">
+                    <img src="../images/site/exa-texture-4.jpg" alt="Texture Transfer - upholstery" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Texture Transfer</span>
+                        <p>Upholstery texture swap</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="texture">
+                    <img src="../images/site/exa-texture-5.jpg" alt="Texture Transfer - surface design" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Texture Transfer</span>
+                        <p>Surface design application</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="texture">
+                    <img src="../images/site/exa-texture-6.jpg" alt="Texture Transfer - product material" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Texture Transfer</span>
+                        <p>Product material variation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="texture">
+                    <img src="../images/site/exa-texture-7.jpg" alt="Texture Transfer - pattern application" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Texture Transfer</span>
+                        <p>Pattern texture application</p>
+                    </div>
+                </div>
+
+                <!-- Outpaint -->
+                <div class="gallery-item" data-category="outpaint">
+                    <img src="../images/site/exa-outpaint-1.jpg" alt="Outpaint - scene extension" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Outpaint</span>
+                        <p>Scene extension beyond frame</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="outpaint">
+                    <img src="../images/site/exa-outpaint-2.jpg" alt="Outpaint - background expansion" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Outpaint</span>
+                        <p>Background expansion</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="outpaint">
+                    <img src="../images/site/exa-outpaint-3.jpg" alt="Outpaint - canvas extension" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Outpaint</span>
+                        <p>Canvas extension — seamless fill</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="outpaint">
+                    <img src="../images/site/exa-outpaint-4.jpg" alt="Outpaint - editorial extension" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Outpaint</span>
+                        <p>Editorial photo extension</p>
+                    </div>
+                </div>
+
+                <!-- Skin Retouch -->
+                <div class="gallery-item" data-category="skin">
+                    <img src="../images/site/exa-skin-1.jpg" alt="Skin Retouch - blemish removal" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Skin Retouch</span>
+                        <p>AI skin cleanup — natural result</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="skin">
+                    <img src="../images/site/exa-skin-2.jpg" alt="Skin Retouch - portrait enhancement" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Skin Retouch</span>
+                        <p>Portrait skin enhancement</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="skin">
+                    <img src="../images/site/exa-skin-3.jpg" alt="Skin Retouch - complexion smoothing" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Skin Retouch</span>
+                        <p>Complexion smoothing — pore-preserving</p>
+                    </div>
+                </div>
+
+                <!-- Product Mockup (Socs) -->
+                <div class="gallery-item" data-category="socs">
+                    <img src="../images/site/exa-socs-1.jpg" alt="Product Mockup - socks on model" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Product Mockup</span>
+                        <p>Flat product → on-model mockup</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="socs">
+                    <img src="../images/site/exa-socs-2.jpg" alt="Product Mockup - accessory visualization" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Product Mockup</span>
+                        <p>Accessory product visualization</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="socs">
+                    <img src="../images/site/exa-socs-3.jpg" alt="Product Mockup - lifestyle shot" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Product Mockup</span>
+                        <p>Product → lifestyle shot generation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="socs">
+                    <img src="../images/site/exa-socs-4.jpg" alt="Product Mockup - display variant" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Product Mockup</span>
+                        <p>Display variant generation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="socs">
+                    <img src="../images/site/exa-socs-5.jpg" alt="Product Mockup - styled presentation" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Product Mockup</span>
+                        <p>Styled product presentation</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,22 +1101,32 @@
                     <span class="contact-label">Email</span>
                     <span class="contact-value">business@nextry.app</span>
                 </a>
-                <a href="https://nextry.app" class="contact-card" target="_blank">
+                <a href="https://nextry.app" class="contact-card" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">&#9758;</div>
                     <span class="contact-label">Website</span>
                     <span class="contact-value">nextry.app</span>
                 </a>
-                <a href="https://civitai.com/user/Sa_May" class="contact-card" target="_blank">
+                <a href="https://civitai.com/user/Sa_May" class="contact-card" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">&#9733;</div>
                     <span class="contact-label">Civitai</span>
                     <span class="contact-value">Sa_May</span>
                 </a>
-                <a href="https://www.linkedin.com/in/elena-matyushenko-366526257/" class="contact-card" target="_blank">
+                <a href="https://www.linkedin.com/in/elena-matyushenko-366526257/" class="contact-card" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">&#9741;</div>
                     <span class="contact-label">LinkedIn</span>
                     <span class="contact-value">Elena Matyushenko</span>
                 </a>
-                <a href="../Elena_Matyushenko_Resume.pdf" class="contact-card" target="_blank">
+                <a href="https://github.com/NexTryApp" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon">&#9998;</div>
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">NexTryApp</span>
+                </a>
+                <a href="https://t.me/ai_lif" class="contact-card" target="_blank" rel="noopener noreferrer">
+                    <div class="contact-icon">&#9992;</div>
+                    <span class="contact-label">Telegram</span>
+                    <span class="contact-value">@ai_lif</span>
+                </a>
+                <a href="../Elena_Matyushenko_Resume.pdf" class="contact-card" target="_blank" rel="noopener noreferrer">
                     <div class="contact-icon">&#9776;</div>
                     <span class="contact-label">Resume</span>
                     <span class="contact-value">Download PDF</span>
@@ -440,6 +1135,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Elena Matyushenko. Built with passion and AI.</p>
     </footer>
