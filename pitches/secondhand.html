@@ -336,7 +336,7 @@
       <h3>For Buyers</h3>
       <ul class="bullet-list">
         <li><div class="bullet-icon blue">🛡</div><div><strong>Buyer protection</strong> — payment held in escrow until buyer confirms receipt. Disputes with evidence.</div></li>
-        <li><div class="bullet-icon blue">👗</div><div><strong>Virtual try-on</strong> — see how clothes look on you before buying (ComfyUI + SAM3)</div></li>
+        <li><div class="bullet-icon blue">👗</div><div><strong>Virtual try-on</strong> — see how clothes look on you before buying — <strong>our own try-on diffusion model</strong>, self-hosted on a ComfyUI + SAM3 pipeline (slide 09)</div></li>
         <li><div class="bullet-icon blue">📦</div><div><strong>Integrated shipping</strong> — Posti SmartPost labels generated automatically. Or meetup zones.</div></li>
         <li><div class="bullet-icon blue">💬</div><div><strong>Real-time chat</strong> — negotiate, send offers, counter-offer — all in-app with WebSocket.</div></li>
       </ul>
@@ -467,7 +467,7 @@
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px;">
       <div style="padding: 20px; background: #f0fdf4; border-radius: 12px; font-size: 14px; text-align: center;">
         <div style="font-size: 20px; margin-bottom: 8px;">🤖</div>
-        <strong>AI Analysis</strong><br>Qwen-VL + GPT-4o-mini<br>auto-fill listings in 3s
+        <strong>AI Analysis</strong><br>Qwen-VL + GPT-4o-mini<br>auto-fill listings in 3s<br><small style="color: var(--gray-300);">+ own try-on model (slide 09)</small>
       </div>
       <div style="padding: 20px; background: #f0fdf4; border-radius: 12px; font-size: 14px; text-align: center;">
         <div style="font-size: 20px; margin-bottom: 8px;">💳</div>
@@ -618,13 +618,61 @@
   </table>
 
   <p style="margin-top: 24px; font-size: 16px; color: var(--gray-500);">
-    <strong>Why we win:</strong> Bought does AI from email receipts — we do AI from photos (no email access needed). Vinted is generic pan-EU — we're local-first with Posti, Y-tunnus business verification, meetup zones. Self-hosted AI models (Qwen-VL, SAM3) = no API dependency. Virtual try-on = technical moat competitors can't copy in a sprint.
+    <strong>Why we win:</strong> Bought does AI from email receipts — we do AI from photos (no email access needed). Vinted is generic pan-EU — we're local-first with Posti, Y-tunnus business verification, meetup zones. Self-hosted AI models (Qwen-VL, SAM3) = no API dependency. And the try-on model is <strong>trained in-house from scratch</strong> (202M-param DiT, 59K-pair dataset) — we own the weights, the dataset and the inference stack, where a competitor would rent a third-party try-on API. That's the moat competitors can't copy in a sprint.
   </p>
 </div>
 
-<!-- SLIDE 9: SUSTAINABILITY -->
+<!-- SLIDE 9: AI MOAT / OWN MODELS -->
 <div class="slide">
   <span class="slide-number">09</span>
+  <span class="tag blue">Technology Moat</span>
+  <h2>Own weights where it matters. Open source for the rest.</h2>
+
+  <div class="metric-grid">
+    <div class="metric">
+      <div class="metric-number" style="color: var(--blue);">202M</div>
+      <div class="metric-label">Parameter diffusion transformer<br><small style="color: var(--gray-300);">Text-to-image DiT trained from scratch — not a fine-tune of someone else's checkpoint</small></div>
+    </div>
+    <div class="metric">
+      <div class="metric-number" style="color: var(--blue);">470K+</div>
+      <div class="metric-label">Training steps completed<br><small style="color: var(--gray-300);">512px stage done, 512→768→1024 resolution cascade in progress</small></div>
+    </div>
+    <div class="metric">
+      <div class="metric-number" style="color: var(--blue);">59K</div>
+      <div class="metric-label">Try-on pairs in our dataset<br><small style="color: var(--gray-300);">Person / garment / target triplets with masks, pose and segmentation</small></div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top: 48px;">
+    <div>
+      <h3>What we built ourselves</h3>
+      <ul class="bullet-list">
+        <li><div class="bullet-icon blue">1</div><div><strong>Text-to-image DiT from scratch</strong> — custom VAE latent space + Qwen2-7B text encoder + single-stream DiT denoiser. Trained on a curated multi-source image set we assembled ourselves.</div></li>
+        <li><div class="bullet-icon blue">2</div><div><strong>Virtual try-on diffusion model</strong> — edit-variant of the base model with packshot reference tokens, trained on a 59K-pair dataset we mined and labelled ourselves.</div></li>
+        <li><div class="bullet-icon blue">3</div><div><strong>Data pipeline</strong> — ~30 fashion/editorial sources scraped, triplet mining (SigLIP + YOLO11-pose + ArcFace), VLM-as-judge recaptioning with Qwen2.5-VL.</div></li>
+        <li><div class="bullet-icon blue">4</div><div><strong>Try-on weights + inference stack</strong> — the model runs on our own ComfyUI pipeline (NexTry fitting room, already live in production) behind a NestJS proxy. No third-party try-on API in the path.</div></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Open source we deliberately don't rebuild</h3>
+      <ul class="bullet-list">
+        <li><div class="bullet-icon green">🏷</div><div><strong>Qwen-VL + GPT-4o-mini</strong> — listing auto-fill from a photo (title, description, condition, price hint) in 3s. Self-hosted VL, API only for the text polish.</div></li>
+        <li><div class="bullet-icon green">✂️</div><div><strong>SAM3 + ComfyUI</strong> — segmentation and pipeline orchestration around our try-on weights. Plus <strong>BiRefNet</strong> (server) / <strong>@imgly</strong> (client, free) for background removal.</div></li>
+        <li><div class="bullet-icon green">🔁</div><div><strong>CatVTON</strong> (Apache 2.0, &lt;8GB VRAM, FID 5.43) — hot fallback and capacity overflow, so a GPU incident never takes try-on down.</div></li>
+        <li><div class="bullet-icon green">⚖️</div><div><strong>The split is the strategy:</strong> train what is the product and the moat, rent or reuse what is a commodity. Zero per-call AI cost on the core feature.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top: 32px; padding: 20px 28px; background: #eff6ff; border-radius: 12px; font-size: 15px; color: var(--gray-700);">
+    <strong>Why it matters:</strong> try-on costs GPU-seconds, not API calls — no per-generation vendor bill, no pricing or ToS change that can break the core feature, and every listing photo and try-on is training signal we own. 470K+ steps of compute, a 59K-pair dataset and the training infrastructure behind them are years of work, not an API key.<br>
+    <strong>Track record:</strong> 121 generative models published on Civitai — 111K+ downloads, 13K+ likes, 1,300+ followers.
+  </div>
+</div>
+
+<!-- SLIDE 10: SUSTAINABILITY -->
+<div class="slide">
+  <span class="slide-number">10</span>
   <span class="tag green">Impact</span>
   <h2>Every item resold = one fewer manufactured</h2>
 
@@ -651,9 +699,9 @@
   <div class="source">Sources: EuRIC / Journal of Circular Economy 2024, ThredUp 2025 Resale Report, Planet Aid</div>
 </div>
 
-<!-- SLIDE 10: ROADMAP -->
+<!-- SLIDE 11: ROADMAP -->
 <div class="slide">
-  <span class="slide-number">10</span>
+  <span class="slide-number">11</span>
   <h2>Roadmap</h2>
 
   <div class="timeline">
@@ -665,7 +713,7 @@
         <li>✅ Stripe payments + payouts</li>
         <li>✅ Posti shipping</li>
         <li>✅ Business accounts + batch</li>
-        <li>✅ Virtual try-on</li>
+        <li>✅ Virtual try-on (own model)</li>
       </ul>
     </div>
     <div class="timeline-item">
@@ -676,6 +724,7 @@
         <li>Partner with 5 outlet stores</li>
         <li>Aalto University campus launch</li>
         <li>CSV bulk import for business</li>
+        <li>Try-on model: 768px stage + 16-ch VAE</li>
       </ul>
     </div>
     <div class="timeline-item">
@@ -701,9 +750,9 @@
   </div>
 </div>
 
-<!-- SLIDE 11: TEAM -->
+<!-- SLIDE 12: TEAM -->
 <div class="slide">
-  <span class="slide-number">11</span>
+  <span class="slide-number">12</span>
   <h2>Team</h2>
 
   <div style="margin-top: 40px;">
@@ -711,7 +760,7 @@
       <div style="width: 120px; height: 120px; border-radius: 50%; background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 48px;">👨‍💻</div>
       <div>
         <h3 style="font-size: 28px; margin-bottom: 4px;">Solo Founder</h3>
-        <p style="color: var(--gray-500); font-size: 18px;">Full-stack engineer. Built the entire platform in 3 months.</p>
+        <p style="color: var(--gray-500); font-size: 18px;">Full-stack engineer <strong>and ML engineer</strong>. Built the entire platform in 3 months — and trains the generative models it runs on (121 models on Civitai, 111K+ downloads).</p>
         <div style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap;">
           <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">NestJS</span>
           <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">Next.js</span>
@@ -719,6 +768,8 @@
           <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">Stripe</span>
           <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">ComfyUI</span>
           <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">PyTorch</span>
+          <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">Diffusion / DiT</span>
+          <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">VAE training</span>
           <span style="padding: 4px 12px; background: var(--gray-100); border-radius: 100px; font-size: 13px; font-weight: 600;">Docker</span>
         </div>
       </div>
@@ -744,9 +795,9 @@
   </div>
 </div>
 
-<!-- SLIDE 12: ASK -->
+<!-- SLIDE 13: ASK -->
 <div class="slide">
-  <span class="slide-number">12</span>
+  <span class="slide-number">13</span>
   <h2>The Ask</h2>
 
   <div class="ask-box">
