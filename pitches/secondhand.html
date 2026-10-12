@@ -258,6 +258,9 @@
     left: 120px;
   }
 
+  .cover-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 72px;
+                align-items: center; width: 100%; }
+  @media (max-width: 1100px) { .cover-grid { grid-template-columns: 1fr; gap: 40px; } }
   .shot-grid { display: grid; gap: 36px; margin-top: 36px; }
   .shot-grid.two { grid-template-columns: 1fr 1fr; align-items: start; }
   .shot-grid.side { grid-template-columns: 0.9fr 1.1fr; align-items: center; }
@@ -277,8 +280,10 @@
 <body>
 
 <!-- SLIDE 1: TITLE -->
-<div class="slide" style="justify-content: center; align-items: flex-start;">
+<div class="slide" style="justify-content: center;">
   <span class="slide-number">01</span>
+  <div class="cover-grid">
+    <div>
   <h1 style="font-size: 80px;">secondhand.fi</h1>
   <p class="subtitle" style="font-size: 28px; margin-bottom: 48px;">
     The marketplace where Gen Z in Finland buys and sells pre-loved fashion — with AI pricing, virtual try-on, and buyer protection.
@@ -287,6 +292,9 @@
     <span>Y Combinator S26 Application</span>
     <span>|</span>
     <span>secondhand.fi</span>
+  </div>
+    </div>
+    <div class="shot"><img src="../images/secondhand/app-home.jpg" alt="secondhand.fi home screen"></div>
   </div>
 </div>
 
