@@ -258,6 +258,17 @@
     left: 120px;
   }
 
+  .shot-grid { display: grid; gap: 36px; margin-top: 36px; }
+  .shot-grid.two { grid-template-columns: 1fr 1fr; align-items: start; }
+  .shot-grid.side { grid-template-columns: 0.9fr 1.1fr; align-items: center; }
+  .shot { border: 1px solid var(--gray-100); border-radius: 14px; overflow: hidden;
+          background: #0b0b0d; box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot.tall { text-align: center; }
+  .shot.tall img { width: auto; max-width: 100%; max-height: 520px; margin: 0 auto; }
+  .shot-cap { font-size: 14px; color: var(--gray-500); margin-top: 12px; line-height: 1.55; }
+  .shot-cap strong { color: var(--black); }
+
   @media print {
     .slide { page-break-after: always; min-height: auto; padding: 40px 60px; }
   }
@@ -336,7 +347,7 @@
       <h3>For Buyers</h3>
       <ul class="bullet-list">
         <li><div class="bullet-icon blue">🛡</div><div><strong>Buyer protection</strong> — payment held in escrow until buyer confirms receipt. Disputes with evidence.</div></li>
-        <li><div class="bullet-icon blue">👗</div><div><strong>Virtual try-on</strong> — see how clothes look on you before buying — <strong>our own try-on diffusion model</strong>, self-hosted on a ComfyUI + SAM3 pipeline (slide 09)</div></li>
+        <li><div class="bullet-icon blue">👗</div><div><strong>Virtual try-on</strong> — see how clothes look on you before buying — <strong>our own try-on diffusion model</strong>, self-hosted on a ComfyUI + SAM3 pipeline (slide 14)</div></li>
         <li><div class="bullet-icon blue">📦</div><div><strong>Integrated shipping</strong> — Posti SmartPost labels generated automatically. Or meetup zones.</div></li>
         <li><div class="bullet-icon blue">💬</div><div><strong>Real-time chat</strong> — negotiate, send offers, counter-offer — all in-app with WebSocket.</div></li>
       </ul>
@@ -344,9 +355,102 @@
   </div>
 </div>
 
-<!-- SLIDE 4: MARKET SIZE -->
+<!-- SLIDE 4: PRODUCT IS LIVE -->
 <div class="slide">
   <span class="slide-number">04</span>
+  <span class="tag orange">Product</span>
+  <h2>The product is live</h2>
+  <p class="subtitle">Marketplace, escrow payments, chat, shipping and AI listing &mdash; shipped and running, not a mockup.</p>
+  <div class="shot-grid two">
+    <div>
+      <div class="shot"><img src="../images/secondhand/app-home.jpg" alt="secondhand.fi home screen"></div>
+      <div class="shot-cap"><strong>Home.</strong> Two doors in &mdash; <em>sell in 30 seconds</em> or <em>browse deals</em>. Finnish-first UI.</div>
+    </div>
+    <div>
+      <div class="shot"><img src="../images/secondhand/app-browse.jpg" alt="Browse page with filters and item grid"></div>
+      <div class="shot-cap"><strong>Browse.</strong> Category, city, condition and price filters; fixed-price and Dutch-auction items in one grid.</div>
+    </div>
+  </div>
+  <div class="source">Screens from the running product</div>
+</div>
+
+<!-- SLIDE 5: AI LISTING -->
+<div class="slide">
+  <span class="slide-number">05</span>
+  <span class="tag green">Product</span>
+  <h2>AI writes the listing</h2>
+  <div class="shot-grid side">
+    <div class="shot tall"><img src="../images/secondhand/app-sell-ai.jpg" alt="AI analysis step of the selling flow"></div>
+    <div>
+      <ul class="bullet-list">
+        <li><div><strong>One photo in.</strong> Brand, category, size, condition and measurements come back filled in &mdash; the seller only confirms.</div></li>
+        <li><div><strong>Price suggestion</strong> from comparable sales, with a one-tap switch to a Dutch auction that walks the price down until it sells.</div></li>
+        <li><div><strong>Description and tags</strong> (colour, style, fit) generated in the seller's language.</div></li>
+        <li><div><strong>Result:</strong> the 20-minute listing chore that kills Finnish C2C supply becomes ~30 seconds.</div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="source">Screens from the running product</div>
+</div>
+
+<!-- SLIDE 6: ITEM PAGE -->
+<div class="slide">
+  <span class="slide-number">06</span>
+  <span class="tag blue">Product</span>
+  <h2>Item page built around trust</h2>
+  <div class="shot-grid two">
+    <div>
+      <div class="shot tall"><img src="../images/secondhand/app-product.jpg" alt="Item page with seller, buyer protection and actions"></div>
+      <div class="shot-cap"><strong>Item page.</strong> Seller profile, condition, measurements, buyer protection and secure payment stated before the buy button.</div>
+    </div>
+    <div>
+      <div class="shot"><img src="../images/secondhand/app-tryon-cta.jpg" alt="Buy, message seller and try on actions"></div>
+      <div class="shot-cap"><strong>Three actions.</strong> Buy now, message the seller, or <strong>try it on</strong> &mdash; the try-on sits on the same screen as the purchase, which is where the return-rate saving comes from.</div>
+    </div>
+  </div>
+  <div class="source">Screens from the running product</div>
+</div>
+
+<!-- SLIDE 7: VIRTUAL TRY-ON -->
+<div class="slide">
+  <span class="slide-number">07</span>
+  <span class="tag blue">Product</span>
+  <h2>Virtual try-on, on our own weights</h2>
+  <div class="shot-grid side">
+    <div class="shot tall"><img src="../images/secondhand/app-tryon.jpg" alt="Virtual try-on page"></div>
+    <div>
+      <ul class="bullet-list">
+        <li><div><strong>Upload a photo, see the garment on yourself.</strong> No studio shot needed &mdash; secondhand items only ever have one amateur photo.</div></li>
+        <li><div><strong>Our model, not an API.</strong> The try-on diffusion model is trained in-house and self-hosted, so per-image cost is GPU time, not a per-call vendor fee.</div></li>
+        <li><div><strong>Shareable output</strong> &mdash; try-on images are the organic acquisition loop, not a paid channel.</div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="source">Screens from the running product &middot; model details on slide 14</div>
+</div>
+
+<!-- SLIDE 8: CHECKOUT -->
+<div class="slide">
+  <span class="slide-number">08</span>
+  <span class="tag orange">Product</span>
+  <h2>Checkout: ship it or meet</h2>
+  <p class="subtitle">Escrow either way. Money is released when the buyer confirms the item.</p>
+  <div class="shot-grid two">
+    <div>
+      <div class="shot tall"><img src="../images/secondhand/app-checkout-ship.jpg" alt="Checkout with Posti SmartPost and Matkahuolto delivery"></div>
+      <div class="shot-cap"><strong>Ship to me.</strong> Posti SmartPost &euro;4.30 or Matkahuolto &euro;4.90, label generated in-app, Stripe-held payment &mdash; and the seller receives 100%, we take no seller commission.</div>
+    </div>
+    <div>
+      <div class="shot tall"><img src="../images/secondhand/app-checkout-meet.jpg" alt="Checkout with in-person meeting points in Helsinki"></div>
+      <div class="shot-cap"><strong>Meet in person.</strong> Pre-agreed public meeting points (Kamppi, Rautatientori, Aalto Dipoli, Itis, Sello) with date and time picked at checkout &mdash; the local handover that Tori does on trust, done with escrow behind it.</div>
+    </div>
+  </div>
+  <div class="source">Screens from the running product</div>
+</div>
+
+<!-- SLIDE 9: MARKET SIZE -->
+<div class="slide">
+  <span class="slide-number">09</span>
   <span class="tag orange">Market</span>
   <h2>Secondhand fashion is the fastest-growing segment in retail</h2>
 
@@ -385,9 +489,9 @@
   <div class="source">Sources: ThredUp 2025 Resale Report, Cross-Border Commerce Europe 2024, Globe Monitor Nordic Fashion 2024, Statista Finland population</div>
 </div>
 
-<!-- SLIDE 5: WHY FINLAND, WHY NOW -->
+<!-- SLIDE 10: WHY FINLAND, WHY NOW -->
 <div class="slide">
-  <span class="slide-number">05</span>
+  <span class="slide-number">10</span>
   <h2>Why Finland? Why now?</h2>
   <div class="two-col">
     <div>
@@ -441,9 +545,9 @@
   </div>
 </div>
 
-<!-- SLIDE 6: TRACTION -->
+<!-- SLIDE 11: TRACTION -->
 <div class="slide">
-  <span class="slide-number">06</span>
+  <span class="slide-number">11</span>
   <span class="tag green">Traction</span>
   <h2>Built in 3 months. Solo founder.</h2>
 
@@ -467,7 +571,7 @@
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px;">
       <div style="padding: 20px; background: #f0fdf4; border-radius: 12px; font-size: 14px; text-align: center;">
         <div style="font-size: 20px; margin-bottom: 8px;">🤖</div>
-        <strong>AI Analysis</strong><br>Qwen-VL + GPT-4o-mini<br>auto-fill listings in 3s<br><small style="color: var(--gray-300);">+ own try-on model (slide 09)</small>
+        <strong>AI Analysis</strong><br>Qwen-VL + GPT-4o-mini<br>auto-fill listings in 3s<br><small style="color: var(--gray-300);">+ own try-on model (slide 14)</small>
       </div>
       <div style="padding: 20px; background: #f0fdf4; border-radius: 12px; font-size: 14px; text-align: center;">
         <div style="font-size: 20px; margin-bottom: 8px;">💳</div>
@@ -485,9 +589,9 @@
   </div>
 </div>
 
-<!-- SLIDE 7: BUSINESS MODEL -->
+<!-- SLIDE 12: BUSINESS MODEL -->
 <div class="slide">
-  <span class="slide-number">07</span>
+  <span class="slide-number">12</span>
   <span class="tag orange">Business Model</span>
   <h2>Three revenue streams from day one</h2>
 
@@ -535,9 +639,9 @@
   </div>
 </div>
 
-<!-- SLIDE 8: COMPETITION -->
+<!-- SLIDE 13: COMPETITION -->
 <div class="slide">
-  <span class="slide-number">08</span>
+  <span class="slide-number">13</span>
   <h2>Competitive landscape</h2>
 
   <table class="competitor-table">
@@ -622,16 +726,16 @@
   </p>
 </div>
 
-<!-- SLIDE 9: AI MOAT / OWN MODELS -->
+<!-- SLIDE 14: AI MOAT / OWN MODELS -->
 <div class="slide">
-  <span class="slide-number">09</span>
+  <span class="slide-number">14</span>
   <span class="tag blue">Technology Moat</span>
   <h2>Own weights where it matters. Open source for the rest.</h2>
 
   <div class="metric-grid">
     <div class="metric">
       <div class="metric-number" style="color: var(--blue);">202M</div>
-      <div class="metric-label">Parameter diffusion transformer<br><small style="color: var(--gray-300);">Text-to-image DiT trained from scratch — not a fine-tune of someone else's checkpoint</small></div>
+      <div class="metric-label">Parameter diffusion transformer<br><small style="color: var(--gray-300);">First-generation text-to-image DiT trained from scratch — not a fine-tune of someone else's checkpoint</small></div>
     </div>
     <div class="metric">
       <div class="metric-number" style="color: var(--blue);">470K+</div>
@@ -664,15 +768,44 @@
     </div>
   </div>
 
+
+  <div style="margin-top: 36px; padding: 24px 28px; border: 1px solid var(--gray-100); border-radius: 12px;">
+    <div style="font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-500); font-weight: 700;">
+      Second generation — Samay, training right now
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 20px;">
+      <div>
+        <div style="font-size: 34px; font-weight: 900; letter-spacing: -1px; color: var(--blue);">288.65M</div>
+        <div style="font-size: 14px; color: var(--gray-500);">DiT params, flow matching</div>
+      </div>
+      <div>
+        <div style="font-size: 34px; font-weight: 900; letter-spacing: -1px; color: var(--blue);">46.0M</div>
+        <div style="font-size: 14px; color: var(--gray-500);">Own 16-channel latent VAE</div>
+      </div>
+      <div>
+        <div style="font-size: 34px; font-weight: 900; letter-spacing: -1px; color: var(--blue);">1.12M</div>
+        <div style="font-size: 14px; color: var(--gray-500);">Self-curated training images</div>
+      </div>
+      <div>
+        <div style="font-size: 34px; font-weight: 900; letter-spacing: -1px; color: var(--blue);">0</div>
+        <div style="font-size: 14px; color: var(--gray-500);">Pretrained weights borrowed</div>
+      </div>
+    </div>
+    <p style="margin-top: 18px; font-size: 15px; color: var(--gray-700);">
+      <strong>Samay</strong> is the next base model under the try-on stack: our own 16-channel VAE (~12:1 compression, not a borrowed SD VAE) plus a dual-stream flow-matching DiT with a frozen Qwen text encoder, trained from zero on 1.12M images we captioned and filtered in-house — on <strong>one desktop GPU (~32GB)</strong>. 512px stage done, <strong>768px training now</strong>, 1024px next. The edit / reference-image path the fitting room needs is already architected on top of this base.
+      <a href="../Samay_Foundation_Model.pdf" style="color: var(--blue); font-weight: 600;">Samay one-pager (PDF) &rarr;</a>
+    </p>
+  </div>
+
   <div style="margin-top: 32px; padding: 20px 28px; background: #eff6ff; border-radius: 12px; font-size: 15px; color: var(--gray-700);">
     <strong>Why it matters:</strong> try-on costs GPU-seconds, not API calls — no per-generation vendor bill, no pricing or ToS change that can break the core feature, and every listing photo and try-on is training signal we own. 470K+ steps of compute, a 59K-pair dataset and the training infrastructure behind them are years of work, not an API key.<br>
     <strong>Track record:</strong> 121 generative models published on Civitai — 111K+ downloads, 13K+ likes, 1,300+ followers.
   </div>
 </div>
 
-<!-- SLIDE 10: SUSTAINABILITY -->
+<!-- SLIDE 15: SUSTAINABILITY -->
 <div class="slide">
-  <span class="slide-number">10</span>
+  <span class="slide-number">15</span>
   <span class="tag green">Impact</span>
   <h2>Every item resold = one fewer manufactured</h2>
 
@@ -699,9 +832,9 @@
   <div class="source">Sources: EuRIC / Journal of Circular Economy 2024, ThredUp 2025 Resale Report, Planet Aid</div>
 </div>
 
-<!-- SLIDE 11: ROADMAP -->
+<!-- SLIDE 16: ROADMAP -->
 <div class="slide">
-  <span class="slide-number">11</span>
+  <span class="slide-number">16</span>
   <h2>Roadmap</h2>
 
   <div class="timeline">
@@ -750,9 +883,9 @@
   </div>
 </div>
 
-<!-- SLIDE 12: TEAM -->
+<!-- SLIDE 17: TEAM -->
 <div class="slide">
-  <span class="slide-number">12</span>
+  <span class="slide-number">17</span>
   <h2>Team</h2>
 
   <div style="margin-top: 40px;">
@@ -795,9 +928,9 @@
   </div>
 </div>
 
-<!-- SLIDE 13: ASK -->
+<!-- SLIDE 18: ASK -->
 <div class="slide">
-  <span class="slide-number">13</span>
+  <span class="slide-number">18</span>
   <h2>The Ask</h2>
 
   <div class="ask-box">

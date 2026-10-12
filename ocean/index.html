@@ -107,11 +107,22 @@
                 <div class="about-text">
                     <p class="about-lead">I build AI-powered products from zero to production - training custom diffusion models, designing ComfyUI inference pipelines, and shipping full-stack platforms that real people use.</p>
                     <p>My work spans the entire stack: <strong>LoRA/LyCORIS fine-tuning</strong> for style transfer and identity consistency, <strong>ComfyUI production workflows</strong> with 2-5x inference speedups, and <strong>full-stack web platforms</strong> built with Next.js, NestJS, and PostgreSQL.</p>
+                    <p>Right now I am training <strong>Samay</strong>, a text-to-image foundation model built <strong>from scratch</strong> - my own VAE and diffusion transformer, trained from zero on ~1.1M self-curated images on a single desktop GPU. Earlier runs include a ~202M-param DiT trained to 470K+ steps at 512px and a custom virtual try-on model on a 59K-pair dataset.</p>
                     <p>On Civitai, I've published <strong>121 models</strong> under the handle <strong>Sa_May</strong>, accumulating over 111K downloads, 13K+ likes, and 1,300+ followers - covering fashion, product visuals, portraits, and style systems.</p>
                 </div>
                 <div class="about-highlights">
                     <div class="highlight-card">
                         <div class="highlight-icon">&#9672;</div>
+                        <h3>Foundation Model From Scratch</h3>
+                        <p>Samay: my own 16-channel VAE (46M) + 288.65M-param diffusion transformer, flow matching, trained from zero on 1.12M self-curated images on one desktop GPU - no pretrained weights borrowed. 512px done, 768px training now.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">&#9674;</div>
+                        <h3>Own Try-On Model</h3>
+                        <p>Virtual try-on diffusion model trained from scratch on a 59K-pair dataset (reference / garment / target with masks, OpenPose, SAM)</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">&#10022;</div>
                         <h3>Model Training</h3>
                         <p>LoRA, DreamBooth, Textual Inversion across SD 1.5/2.1/3, SDXL, FLUX, HiDream, Qwen, Qwen-Edit</p>
                     </div>
