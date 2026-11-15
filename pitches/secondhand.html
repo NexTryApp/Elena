@@ -747,7 +747,7 @@
     </div>
     <div class="metric">
       <div class="metric-number" style="color: var(--blue);">470K+</div>
-      <div class="metric-label">Training steps completed<br><small style="color: var(--gray-300);">512px stage done, 512→768→1024 resolution cascade in progress</small></div>
+      <div class="metric-label">Training steps completed (first generation)<br><small style="color: var(--gray-300);">512px stage done, 512→768→1024 resolution cascade in progress. Samay, the second generation, is already at 1.43M steps</small></div>
     </div>
     <div class="metric">
       <div class="metric-number" style="color: var(--blue);">59K</div>
@@ -791,7 +791,7 @@
         <div style="font-size: 14px; color: var(--gray-500);">Own 16-channel latent VAE</div>
       </div>
       <div>
-        <div style="font-size: 34px; font-weight: 900; letter-spacing: -1px; color: var(--blue);">1.12M</div>
+        <div style="font-size: 34px; font-weight: 900; letter-spacing: -1px; color: var(--blue);">3.2M</div>
         <div style="font-size: 14px; color: var(--gray-500);">Self-curated training images</div>
       </div>
       <div>
@@ -800,13 +800,13 @@
       </div>
     </div>
     <p style="margin-top: 18px; font-size: 15px; color: var(--gray-700);">
-      <strong>Samay</strong> is the next base model under the try-on stack: our own 16-channel VAE (~12:1 compression, not a borrowed SD VAE) plus a dual-stream flow-matching DiT with a frozen Qwen text encoder, trained from zero on 1.12M images we captioned and filtered in-house — on <strong>one desktop GPU (~32GB)</strong>. 512px stage done, <strong>768px training now</strong>, 1024px next. The edit / reference-image path the fitting room needs is already architected on top of this base.
+      <strong>Samay</strong> is the next base model under the try-on stack: our own 16-channel VAE (~12:1 compression, not a borrowed SD VAE) plus a dual-stream flow-matching DiT with a frozen Qwen text encoder, trained from zero on ~3.2M images we captioned and filtered in-house — on <strong>one desktop GPU (~32GB)</strong>. 1.43M steps in, 512px stage done, <strong>768px training now</strong>, 1024px next. The edit / reference-image path the fitting room needs is already architected on top of this base.
       <a href="../Samay_Foundation_Model.pdf" style="color: var(--blue); font-weight: 600;">Samay one-pager (PDF) &rarr;</a>
     </p>
   </div>
 
   <div style="margin-top: 32px; padding: 20px 28px; background: #eff6ff; border-radius: 12px; font-size: 15px; color: var(--gray-700);">
-    <strong>Why it matters:</strong> try-on costs GPU-seconds, not API calls — no per-generation vendor bill, no pricing or ToS change that can break the core feature, and every listing photo and try-on is training signal we own. 470K+ steps of compute, a 59K-pair dataset and the training infrastructure behind them are years of work, not an API key.<br>
+    <strong>Why it matters:</strong> try-on costs GPU-seconds, not API calls — no per-generation vendor bill, no pricing or ToS change that can break the core feature, and every listing photo and try-on is training signal we own. 1.43M+ steps of compute, a 59K-pair dataset and the training infrastructure behind them are years of work, not an API key.<br>
     <strong>Track record:</strong> 121 generative models published on Civitai — 111K+ downloads, 13K+ likes, 1,300+ followers.
   </div>
 </div>
